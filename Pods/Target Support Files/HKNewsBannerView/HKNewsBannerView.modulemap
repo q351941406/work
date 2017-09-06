@@ -1,0 +1,6 @@
+framework module HKNewsBannerView {
+  umbrella header "HKNewsBannerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
