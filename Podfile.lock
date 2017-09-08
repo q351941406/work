@@ -24,6 +24,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ContextMenu.iOS (1.1.0)
   - Google-Mobile-Ads-SDK (7.22.0)
+  - Harpy (4.1.6)
   - HKNewsBannerView (1.0.1)
   - IQKeyboardManager (4.0.13)
   - iRate (1.12.1)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - ChameleonFramework (~> 2.1.0)
   - ContextMenu.iOS (~> 1.1.0)
   - Google-Mobile-Ads-SDK
+  - Harpy (~> 4.1.6)
   - HKNewsBannerView (~> 1.0.1)
   - IQKeyboardManager (~> 4.0.13)
   - iRate (~> 1.12.1)
@@ -77,6 +79,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   ContextMenu.iOS: 7f3b63915e660f51aada2c4285c40a837b2c9737
   Google-Mobile-Ads-SDK: 1bdf1a4244d0553b1840239874c209c01aef055f
+  Harpy: 00136386df1e2bb7554a5bef5d56529c9c33739a
   HKNewsBannerView: 2336ac6ce58cf891c73f96a5dad24b4d3d85e51a
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
@@ -92,6 +95,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
 
-PODFILE CHECKSUM: c76065d7df2a7ea1ca8adcfd61ce85ca036fdcfd
+PODFILE CHECKSUM: 8118ea219987d2bade168b9c60b9ceffff67292c
 
 COCOAPODS: 1.2.0

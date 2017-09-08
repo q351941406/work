@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Harpy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -107,6 +112,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>017C8A0374A88AC546D5D94EF9474BD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>02735BBC57598BF24C52A18DF1CEFE18</key>
 		<dict>
 			<key>primary</key>
@@ -252,6 +262,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>866FCAF88AE807791C5B410416359645</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8A267660E1AD4832DE75665F2F87AEA3</key>
 		<dict>
 			<key>primary</key>
@@ -263,6 +278,11 @@
 			<true/>
 		</dict>
 		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA0AD87A05BF55201C7808C46D09DCAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -298,6 +318,11 @@
 			<true/>
 		</dict>
 		<key>C6CED7D801BD104C72E7F05C530A37A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C840BE1B4D8BC4AE75B124A6C2D5F615</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,6 +8,8 @@
 
 #import "FHHomeCell.h"
 #import "HomeModel.h"
+#import "GzwThemeTool.h"
+
 
 @interface FHHomeCell()
 @property (weak, nonatomic) IBOutlet UIView *backView;
@@ -24,17 +26,19 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.backView.layer.shadowColor =  [UIColor blackColor].CGColor;
-    self.backView.layer.shadowOffset =  CGSizeMake(3,3);
-    self.backView.layer.shadowOpacity = 0.3;
-    
-    self.backImg.clipsToBounds = YES;
+
     
     self.title.layer.shadowColor =  [UIColor blackColor].CGColor;
     self.title.layer.shadowOffset =  CGSizeMake(1,1);
     
     //self.miaoshu.hidden
     
+    NSArray *array = @[[GzwThemeTool theme],[UIColor whiteColor]];
+    self.backView.backgroundColor =  RandomFlatColorExcluding(array);
+//        self.backView.backgroundColor =  RandomFlatColorWithShade(UIShadeStyleLight);
+    _title.textColor = ContrastColor(self.backView.backgroundColor, YES);
+    _subTitle.textColor = _title.textColor;
+    _desTitle.textColor = _title.textColor;
 }
 
 +(instancetype)cellWithTableView:(UITableView *)tableView
@@ -52,9 +56,8 @@
     _title.text = model.title;
     _subTitle.text = model.subtitle;
     _desTitle.text = [NSString stringWithFormat:@"%ld人在做",(long)model.count+model.chose_count];
+
     
-    NSString *name = [NSString stringWithFormat:@"%ld",(model.row % 17) + 1];
-    _backImg.image = [UIImage imageNamed:name];
 }
 
 

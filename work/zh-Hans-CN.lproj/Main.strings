@@ -1,0 +1,18 @@
+
+/* Class = "UITextField"; placeholder = "用户名"; ObjectID = "D8X-Yh-G4l"; */
+"D8X-Yh-G4l.placeholder" = "用户名";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "eCU-Jh-OFv"; */
+"eCU-Jh-OFv.placeholder" = "密码";
+
+/* Class = "UILabel"; text = "   欢迎您"; ObjectID = "kIY-L8-1WT"; */
+"kIY-L8-1WT.text" = "   欢迎您";
+
+/* Class = "UIButton"; normalTitle = "返回"; ObjectID = "pEl-cz-CQN"; */
+"pEl-cz-CQN.normalTitle" = "返回";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "vRw-h7-RzR"; */
+"vRw-h7-RzR.normalTitle" = "注册";
+
+/* Class = "UIButton"; normalTitle = "登陆"; ObjectID = "zJd-jd-7W4"; */
+"zJd-jd-7W4.normalTitle" = "登陆";

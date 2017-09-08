@@ -95,11 +95,11 @@
     }
     
     //AD
-    self.interstitial = [self createAndLoadInterstitial];
-    
-    [GADRewardBasedVideoAd sharedInstance].delegate = self;
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
-                                           withAdUnitID:@"ca-app-pub-5630134464311346/8390260332"];
+//    self.interstitial = [self createAndLoadInterstitial];
+//    
+//    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+//    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
+//                                           withAdUnitID:@"ca-app-pub-5630134464311346/8390260332"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRedBage) name:nil object:nil];
     
@@ -321,17 +321,17 @@
     self.jinBILabel.text = [NSString stringWithFormat:@"%ld",([self.jinBILabel.text integerValue] + count)];
     //打开广告
     
-    if (self.interstitial.isReady == NO) {
-        self.interstitial = [self createAndLoadInterstitial];
-    }
-    
-    if (self.interstitial.isReady) {
-        [self.interstitial presentFromRootViewController:self];
-    }else{
-        if ([[GADRewardBasedVideoAd sharedInstance] isReady] && self.isJingAlert) {
-            [self showAlert];
-        }
-    }
+//    if (self.interstitial.isReady == NO) {
+//        self.interstitial = [self createAndLoadInterstitial];
+//    }
+//    
+//    if (self.interstitial.isReady) {
+//        [self.interstitial presentFromRootViewController:self];
+//    }else{
+//        if ([[GADRewardBasedVideoAd sharedInstance] isReady] && self.isJingAlert) {
+//            [self showAlert];
+//        }
+//    }
     
     //检查小红点是否存在
     [self checkRedBage];

@@ -37,8 +37,10 @@
 #import "MQChatViewManager.h"
 #import "YALContextMenuTableView.h"
 #import "ContextMenuCell.h"
-
 #import "YALNavigationBar.h"
+#import "Harpy.h"
+
+
 static NSString *const menuCellIdentifier = @"rotationCell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,GADInterstitialDelegate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
@@ -109,7 +111,8 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     [super viewDidLoad];
     
     
-
+    
+    [self upDate];
     
     [self initUI];
 //    [self.navigationController setValue:[[YALNavigationBar alloc]init] forKeyPath:@"navigationBar"];
@@ -155,7 +158,16 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     _a.hidden = NO;
     shakerAnimation(self.talkBtn, 1, 20);
 }
-
+-(void)upDate
+{
+    [[Harpy sharedInstance] setPresentingViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    //    [[Harpy sharedInstance] setDelegate:self];
+        [[Harpy sharedInstance] setCountryCode:@"cn"];
+    [[Harpy sharedInstance] setAppName:@"赚钱钱"];
+    [[Harpy sharedInstance] setAlertType:HarpyAlertTypeForce];
+    [[Harpy sharedInstance] setDebugEnabled:true];
+    [[Harpy sharedInstance] checkVersion];
+}
 -(void)initUI
 {
     
@@ -497,34 +509,6 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
                 [alertController addAction:cacelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
                 
-                
-                
-//                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"严重操作！" message:@"此操作导致非常严重，请在客服的指导下进行，切勿独自尝试！！！切勿独自尝试！！！切勿独自尝试！！！" preferredStyle:UIAlertControllerStyleAlert];
-//                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
-//                    textField.text = [SAMKeychain passwordForService:@"UUID" account:@"UUID"];
-//                }];
-//                UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-//                    UITextField *f = alertController.textFields[0];
-//                    //查找GameScore表
-//                    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"user"];
-//                    [bquery whereKey:@"UUID" equalTo:[SAMKeychain passwordForService:@"UUID" account:@"UUID"]];
-//                    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-//                        if (error){
-//                            
-//                        }else{
-//                            BmobObject *obj = array.firstObject;
-//                            [obj deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
-//                                [SAMKeychain deletePasswordForService:@"UUID" account:@"UUID"];
-//                                [alertController dismissViewControllerAnimated:YES completion:nil];
-//                            }];
-//                        }
-//                    }];
-//                }];
-//                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-//                [alertController addAction:okAction];
-//                [alertController addAction:resetAction];
-//                [self presentViewController:alertController animated:YES completion:nil];
-                
             }
             default:
                 break;
@@ -533,12 +517,14 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     }else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         HomeModel *model = self.datas[indexPath.row];
+        
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pass"]) {
-            //        AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-            //        [self.navigationController pushViewController:web animated:YES];
             
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [alert show];
+                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+                    [self.navigationController pushViewController:web animated:YES];
+            
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//            [alert show];
             
         }else{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];
@@ -595,9 +581,9 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 {
     [self viewWillAppear:YES];
     [self viewDidAppear:YES];
-    if ([self.interstitial isReady]) {
-        [self.interstitial presentFromRootViewController:self];
-    }
+//    if ([self.interstitial isReady]) {
+//        [self.interstitial presentFromRootViewController:self];
+//    }
 }
 
 #pragma mark - alert
@@ -616,7 +602,8 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         _tableView.bounces = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.contentInset = UIEdgeInsetsMake(HeaderH, 0, 0, 0);
-        _tableView.rowHeight = 140;
+        _tableView.estimatedRowHeight = 70;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;

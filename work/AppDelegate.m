@@ -23,7 +23,7 @@
 #import <SAMKeychain/SAMKeychain.h>
 #import <MeiQiaSDK/MeiQiaSDK.h>
 #import "iRate.h"
-
+#import "Harpy.h"
 
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
@@ -37,7 +37,7 @@
 //    [self setJupsh:launchOptions];
     [Bmob registerWithAppKey:BMOB_KEY];
     [[BaiduMobStat defaultStat] startWithAppId:@"046f44a2ba"];
-    [GADMobileAds configureWithApplicationID:@"ca-app-pub-5630134464311346~2601202442"];
+//    [GADMobileAds configureWithApplicationID:@"ca-app-pub-5630134464311346~2601202442"];
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
@@ -198,6 +198,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 //        [[iRate sharedInstance] promptForRating];
 //    }
 }
+
 -(void)setupKeyboard
 {
     [MQManager initWithAppkey:@"5979a4368c7786c76b58306036952553" completion:^(NSString *clientId, NSError *error) {

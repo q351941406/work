@@ -21,4 +21,5 @@ pod 'SAMKeychain', '~> 1.5.2' #钥匙串工具
 pod 'Meiqia', '~> 3.3.8'
 pod 'iRate', '~> 1.12.1'
 pod 'ContextMenu.iOS', '~> 1.1.0'
+pod 'Harpy', '~> 4.1.6'
 end
