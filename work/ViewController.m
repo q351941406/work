@@ -50,7 +50,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 @property (nonatomic,weak) UIButton *gameBtn;
 @property (nonatomic,strong) UIButton *talkBtn;
 @property (nonatomic,strong) DPScrollNumberLabel *numLabel; //金额
-@property (nonatomic,strong) NSTimer *timer;
+
 @property (nonatomic,strong) NSArray *titles;
 @property (nonatomic,strong) NSMutableArray *ads;
 @property (nonatomic,strong) NSMutableArray *datas;
@@ -67,46 +67,10 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 @implementation ViewController
 
-void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
-    NSString * fillMode = kCAFillModeForwards;
-    
-    ////An infinity animation
-    
-    ////Oval animation
-    CAKeyframeAnimation * ovalTransformAnim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    ovalTransformAnim.values         = @[[NSValue valueWithCATransform3D:CATransform3DIdentity],
-                                         [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0, 10, 0)]];
-    ovalTransformAnim.keyTimes       = @[@0, @1];
-    ovalTransformAnim.duration       = 0.5;
-    ovalTransformAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    ovalTransformAnim.repeatCount    = INFINITY;
-    ovalTransformAnim.autoreverses   = YES;
-    [view.layer addAnimation:ovalTransformAnim forKey:@"ovalUntitled1Anim"];
-}
--(UIButton *)talkBtn
-{
-    if (!_talkBtn) {
-        _talkBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _talkBtn.frame = CGRectMake(ViewW - 65, self.view.height - 130, 50, 50);
-        _talkBtn.layer.cornerRadius = 25.0f;
-        _talkBtn.tintColor = [UIColor whiteColor];
-        _talkBtn.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
-        _talkBtn.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
-        _talkBtn.layer.shadowOpacity = 0.8;//阴影透明度，默认0
-        _talkBtn.layer.shadowRadius = 4;//阴影半径，默认3
-        _talkBtn.backgroundColor = [GzwThemeTool theme];
-        [_talkBtn addTarget:self action:@selector(talkClck) forControlEvents:UIControlEventTouchUpInside];
-        [_talkBtn setImage:[UIImage imageNamed:@"icons8-Speech Bubble with Dots_"] forState:UIControlStateNormal];
-        shakerAnimation(_talkBtn, 1, 20);
-    }
-    return _talkBtn;
-}
--(void)talkClck
-{
-    //在开发者需要调出聊天界面的位置，增加如下代码
-    MQChatViewManager *chatViewManager = [[MQChatViewManager alloc] init];
-    [chatViewManager pushMQChatViewControllerInViewController:self];
-}
+
+
+
+#pragma mark life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -124,7 +88,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 //    }
     
     
-    [self checkNetworkStatus];
+ 
     
     [self.view addSubview:self.talkBtn];
 }
@@ -260,11 +224,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     
     
 }
--(void)leftClick
-{
-    // it is better to use this method only for proper animation
-    [self.contextMenuTableView showInView:self.navigationController.view withEdgeInsets:UIEdgeInsetsZero animated:YES];
-}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     
@@ -302,56 +262,47 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     
     _gameBtn = button;
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-    _timer = timer;
+   
 }
 
 
 
--(void)timerAction
-{
-    _timeCount ++;
-    NSInteger cont = _timeCount%self.titles.count;
-    [_gameBtn setTitle:_titles[cont] forState:0];
-}
+
 
 #pragma mark - network
 
--(void)checkNetworkStatus
-{
-    AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
-    [afNetworkReachabilityManager startMonitoring];
-    [afNetworkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusNotReachable:{
-                [FHDufulatUtil sharedInstance].network = NO;
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWiFi:{
-                [FHDufulatUtil sharedInstance].network = YES;
-                break;
-            }
-                
-            case AFNetworkReachabilityStatusReachableViaWWAN:{
-                [FHDufulatUtil sharedInstance].network = YES;
-                break;
-            }
-            case AFNetworkReachabilityStatusUnknown:
-                [FHDufulatUtil sharedInstance].network = NO;
-                break;
-            default:
-                
-                break;
-        }
-    }];
+
+
+
+
+#pragma mark - action
+void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
+
+    
+    ////An infinity animation
+    
+    ////Oval animation
+    CAKeyframeAnimation * ovalTransformAnim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    ovalTransformAnim.values         = @[[NSValue valueWithCATransform3D:CATransform3DIdentity],
+                                         [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0, 10, 0)]];
+    ovalTransformAnim.keyTimes       = @[@0, @1];
+    ovalTransformAnim.duration       = 0.5;
+    ovalTransformAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    ovalTransformAnim.repeatCount    = INFINITY;
+    ovalTransformAnim.autoreverses   = YES;
+    [view.layer addAnimation:ovalTransformAnim forKey:@"ovalUntitled1Anim"];
 }
-
-
-
-
-#pragma mark - click
+-(void)leftClick
+{
+    // it is better to use this method only for proper animation
+    [self.contextMenuTableView showInView:self.navigationController.view withEdgeInsets:UIEdgeInsetsZero animated:YES];
+}
+-(void)talkClck
+{
+    //在开发者需要调出聊天界面的位置，增加如下代码
+    MQChatViewManager *chatViewManager = [[MQChatViewManager alloc] init];
+    [chatViewManager pushMQChatViewControllerInViewController:self];
+}
 -(void)headerClick:(UIButton *)btn
 {
     
@@ -737,5 +688,22 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     }
     return _contextMenuTableView;
 }
-
+-(UIButton *)talkBtn
+{
+    if (!_talkBtn) {
+        _talkBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _talkBtn.frame = CGRectMake(ViewW - 65, self.view.height - 130, 50, 50);
+        _talkBtn.layer.cornerRadius = 25.0f;
+        _talkBtn.tintColor = [UIColor whiteColor];
+        _talkBtn.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
+        _talkBtn.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+        _talkBtn.layer.shadowOpacity = 0.8;//阴影透明度，默认0
+        _talkBtn.layer.shadowRadius = 4;//阴影半径，默认3
+        _talkBtn.backgroundColor = [GzwThemeTool theme];
+        [_talkBtn addTarget:self action:@selector(talkClck) forControlEvents:UIControlEventTouchUpInside];
+        [_talkBtn setImage:[UIImage imageNamed:@"icons8-Speech Bubble with Dots_"] forState:UIControlStateNormal];
+        shakerAnimation(_talkBtn, 1, 20);
+    }
+    return _talkBtn;
+}
 @end
