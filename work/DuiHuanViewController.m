@@ -182,7 +182,7 @@
         //进行操作
         if (isSuccessful) {
             [GzwHUDTool dismiss];
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提现成功，钱款会在1～3个工作日内转到你指定账户" message:@"接下来你需要前往appStore好评app，能加快提现速度哦！！！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提现成功，钱款会在1～3个工作日内转到你指定账户" message:@"接下来你需要前往appStore评价app，能加快提现速度哦！！！" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去好论" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self presentViewController:self.storeVC animated:YES completion:nil];
             }];

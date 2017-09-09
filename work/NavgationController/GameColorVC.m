@@ -18,9 +18,12 @@
 #import "FHExplainxibView.h"
 #import "YQLightLab.h"
 #import "FHJiangLiView.h"
+#import "GzwHUDTool.h"
+#import <StoreKit/StoreKit.h>
+#import "SAMKeychain.h"
+#import <SAMKeychain/SAMKeychain.h>
 
-
-@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,GADInterstitialDelegate,UIAlertViewDelegate,GADRewardBasedVideoAdDelegate>
+@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,GADInterstitialDelegate,UIAlertViewDelegate,GADRewardBasedVideoAdDelegate,SKStoreProductViewControllerDelegate>
 @property(nonatomic, strong) GADInterstitial *interstitial;
 @property (weak, nonatomic) IBOutlet UIButton *shitouBtn;
 @property (weak, nonatomic) IBOutlet UIButton *buBtn;
@@ -42,6 +45,8 @@
 @property (weak,   nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *jinBILabel;
 @property (weak, nonatomic) IBOutlet UIView *bageView;
+@property(nonatomic,strong)SKStoreProductViewController *storeVC;
+
 
 @end
 
@@ -50,7 +55,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    //首先实例化一个VC
+    self.storeVC = [[SKStoreProductViewController alloc] init];
+    //然后设置代理，注意这很重要，不如弹出就没法dismiss了
+    self.storeVC.delegate = self;
+    //最后加载应用数据
+    [self.storeVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@(1278436431)} completionBlock:^(BOOL result, NSError * _Nullable error) {
+        if (error) {
+            [GzwHUDTool showErrorWithStatus:error.description];
+        }
+    }];
     
     self.shitouBtn.layer.borderWidth = 4;
     self.shitouBtn.layer.cornerRadius = 4;
@@ -282,15 +296,55 @@
         name = @"😐平分秋色 奖励 10";
         count = 10;
     }else{//输
-        name = @"😖输了 安慰奖 1";
-        count = 1;
+        name = @"😖输了";
+        count = -40;
+        
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:name message:@"去评价能有效增加胜率哦" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去好论" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pass"]) {
+                
+            }else {
+                [self presentViewController:self.storeVC animated:YES completion:nil];
+            }
+            
+        }];
+        UIAlertAction *a = [UIAlertAction actionWithTitle:@"不用" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [GzwHUDTool showWithStatus:@""];
+            //查找GameScore表
+            BmobQuery   *bquery = [BmobQuery queryWithClassName:@"user"];
+            [bquery whereKey:@"UUID" equalTo:[SAMKeychain passwordForService:@"UUID" account:@"UUID"]];
+            [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                if (error){
+                    
+                }else{
+                    BmobObject *obj = array.firstObject;
+                    [obj setObject:@(count + [[obj objectForKey:@"Gold"] integerValue]).stringValue forKey:@"Gold"];
+                    [obj sub_updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                        [GzwHUDTool dismiss];
+                    }];
+                }
+                
+            }];
+        }];
+        [alertController addAction:okAction];
+        [alertController addAction:a];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+        
+        
+        
     }
     
     RedPackgeView *redView = [[RedPackgeView alloc] initWithTitle:name count:count isGame:YES];
     redView.degelate = self;
     [redView show];
 }
-
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    //在代理方法里dismiss这个VC
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)seletedMusicWithName:(NSString *)name
 {
