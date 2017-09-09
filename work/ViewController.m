@@ -50,7 +50,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 @property (nonatomic,weak) UIButton *gameBtn;
 @property (nonatomic,strong) UIButton *talkBtn;
 @property (nonatomic,strong) DPScrollNumberLabel *numLabel; //金额
-
+@property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) NSArray *titles;
 @property (nonatomic,strong) NSMutableArray *ads;
 @property (nonatomic,strong) NSMutableArray *datas;
@@ -262,12 +262,19 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     
     _gameBtn = button;
     
-   
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    _timer = timer;
 }
 
 
 
-
+-(void)timerAction
+{
+    _timeCount ++;
+    NSInteger cont = _timeCount%self.titles.count;
+    [_gameBtn setTitle:_titles[cont] forState:0];
+}
 
 #pragma mark - network
 
