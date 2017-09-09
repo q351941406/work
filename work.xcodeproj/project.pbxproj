@@ -269,21 +269,21 @@
 		ADAFB7721F48066E00791049 /* FHJiangLiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHJiangLiView.h; sourceTree = "<group>"; };
 		ADAFB7731F48066E00791049 /* FHJiangLiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHJiangLiView.m; sourceTree = "<group>"; };
 		ADAFB7751F48067E00791049 /* FHJiangLiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FHJiangLiView.xib; sourceTree = "<group>"; };
-		ADB57F911F48685B00DB80B3 /* DuiHuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuiHuanViewController.h; sourceTree = "<group>"; };
-		ADB57F921F48685B00DB80B3 /* DuiHuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuiHuanViewController.m; sourceTree = "<group>"; };
-		ADB57F931F48685B00DB80B3 /* DuiHuanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DuiHuanViewController.xib; sourceTree = "<group>"; };
+		ADB57F911F48685B00DB80B3 /* DuiHuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DuiHuanViewController.h; path = ../DuiHuanViewController.h; sourceTree = "<group>"; };
+		ADB57F921F48685B00DB80B3 /* DuiHuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuiHuanViewController.m; path = ../DuiHuanViewController.m; sourceTree = "<group>"; };
+		ADB57F931F48685B00DB80B3 /* DuiHuanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DuiHuanViewController.xib; path = ../DuiHuanViewController.xib; sourceTree = "<group>"; };
 		ADB821A91F40343000318342 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		ADB821AA1F40343000318342 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		ADB821AC1F403C3100318342 /* LLWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLWaveView.h; sourceTree = "<group>"; };
 		ADB821AD1F403C3100318342 /* LLWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWaveView.m; sourceTree = "<group>"; };
-		ADB821AF1F4046E400318342 /* RedPackgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedPackgeView.h; sourceTree = "<group>"; };
-		ADB821B01F4046E400318342 /* RedPackgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedPackgeView.m; sourceTree = "<group>"; };
+		ADB821AF1F4046E400318342 /* RedPackgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedPackgeView.h; path = ../RedPackgeView.h; sourceTree = "<group>"; };
+		ADB821B01F4046E400318342 /* RedPackgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedPackgeView.m; path = ../RedPackgeView.m; sourceTree = "<group>"; };
 		ADB821B21F40547200318342 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = NavgationController/PrefixHeader.pch; sourceTree = "<group>"; };
 		ADC6E6141F3D76C800BAAC56 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		ADC6E6151F3D76C800BAAC56 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		ADC6E6561F3D93E700BAAC56 /* GameColorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameColorVC.h; path = NavgationController/GameColorVC.h; sourceTree = "<group>"; };
-		ADC6E6571F3D93E700BAAC56 /* GameColorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameColorVC.m; path = NavgationController/GameColorVC.m; sourceTree = "<group>"; };
-		ADC6E6581F3D93E700BAAC56 /* GameColorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameColorVC.xib; path = NavgationController/GameColorVC.xib; sourceTree = "<group>"; };
+		ADC6E6561F3D93E700BAAC56 /* GameColorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameColorVC.h; path = ../NavgationController/GameColorVC.h; sourceTree = "<group>"; };
+		ADC6E6571F3D93E700BAAC56 /* GameColorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameColorVC.m; path = ../NavgationController/GameColorVC.m; sourceTree = "<group>"; };
+		ADC6E6581F3D93E700BAAC56 /* GameColorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameColorVC.xib; path = ../NavgationController/GameColorVC.xib; sourceTree = "<group>"; };
 		ADFFD7D01F46D73C00FD76EC /* FHExplainxibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHExplainxibView.h; sourceTree = "<group>"; };
 		ADFFD7D11F46D73C00FD76EC /* FHExplainxibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHExplainxibView.m; sourceTree = "<group>"; };
 		ADFFD7D31F46D75300FD76EC /* FHExplainxibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FHExplainxibView.xib; sourceTree = "<group>"; };
@@ -448,6 +448,28 @@
 			path = ContextMenuCell;
 			sourceTree = "<group>";
 		};
+		04B30FD01F63F42400BA257E /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				ADB57F911F48685B00DB80B3 /* DuiHuanViewController.h */,
+				ADB57F921F48685B00DB80B3 /* DuiHuanViewController.m */,
+				ADB57F931F48685B00DB80B3 /* DuiHuanViewController.xib */,
+			);
+			path = "提现";
+			sourceTree = "<group>";
+		};
+		04B30FD11F6403A000BA257E /* 游戏 */ = {
+			isa = PBXGroup;
+			children = (
+				ADC6E6561F3D93E700BAAC56 /* GameColorVC.h */,
+				ADC6E6571F3D93E700BAAC56 /* GameColorVC.m */,
+				ADC6E6581F3D93E700BAAC56 /* GameColorVC.xib */,
+				ADB821AF1F4046E400318342 /* RedPackgeView.h */,
+				ADB821B01F4046E400318342 /* RedPackgeView.m */,
+			);
+			path = "游戏";
+			sourceTree = "<group>";
+		};
 		4F7D6BEB1F3BF90B00FBEB2E = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +491,8 @@
 		4F7D6BF61F3BF90B00FBEB2E /* work */ = {
 			isa = PBXGroup;
 			children = (
+				04B30FD11F6403A000BA257E /* 游戏 */,
+				04B30FD01F63F42400BA257E /* 提现 */,
 				046327FA1F608A1A003D88DD /* ContextMenuCell */,
 				0415512A1F580C0000C833E8 /* MyTool */,
 				041551241F580BF000C833E8 /* 登录注册 */,
@@ -481,14 +505,8 @@
 				4F7D6BFB1F3BF90B00FBEB2E /* AppDelegate.m */,
 				0415511A1F56E28500C833E8 /* GzwThemeTool.h */,
 				0415511B1F56E28500C833E8 /* GzwThemeTool.m */,
-				ADC6E6561F3D93E700BAAC56 /* GameColorVC.h */,
-				ADC6E6571F3D93E700BAAC56 /* GameColorVC.m */,
-				ADC6E6581F3D93E700BAAC56 /* GameColorVC.xib */,
 				4F7D6BFD1F3BF90B00FBEB2E /* ViewController.h */,
 				4F7D6BFE1F3BF90B00FBEB2E /* ViewController.m */,
-				ADB57F911F48685B00DB80B3 /* DuiHuanViewController.h */,
-				ADB57F921F48685B00DB80B3 /* DuiHuanViewController.m */,
-				ADB57F931F48685B00DB80B3 /* DuiHuanViewController.xib */,
 				AD3EF2B21F4D116D006A4E59 /* ZhiWuTBVC.h */,
 				AD3EF2B31F4D116D006A4E59 /* ZhiWuTBVC.m */,
 				AD318D421F4188EA00598F23 /* LoginViewController.h */,
@@ -651,8 +669,6 @@
 				ADAEDE8D1F3C6BDB000AAC8F /* FHHomeCell.h */,
 				ADAEDE8E1F3C6BDB000AAC8F /* FHHomeCell.m */,
 				ADAEDE8F1F3C6BDB000AAC8F /* FHHomeCell.xib */,
-				ADB821AF1F4046E400318342 /* RedPackgeView.h */,
-				ADB821B01F4046E400318342 /* RedPackgeView.m */,
 				AD318D6A1F41D73F00598F23 /* gameBtn.h */,
 				AD318D6B1F41D73F00598F23 /* gameBtn.m */,
 				AD641F2A1F444F6900D35DB3 /* GameResultCell.h */,

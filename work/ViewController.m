@@ -248,13 +248,13 @@ static NSString *const menuCellIdentifier = @"rotationCell";
         
     }];
 }
+
 -(void)initGameBtn
 {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     button.center = CGPointMake(CGRectGetMidX(self.view.frame), SCREEN_HEIGHT - 70);
     button.layer.cornerRadius = 25.0f;
     button.backgroundColor = [GzwThemeTool theme];
-//    [button setTitleColor:[GzwThemeTool complementaryFlatColor] forState:0];
     [button addTarget:self action:@selector(pushMethod) forControlEvents:UIControlEventTouchUpInside];
     [button setImage:[UIImage imageNamed:@"luck_rps_%0_thumb"] forState:UIControlStateNormal];
     [self.navigationController.view addSubview:button];
@@ -471,11 +471,11 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pass"]) {
             
-                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-                    [self.navigationController pushViewController:web animated:YES];
+//                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+//                    [self.navigationController pushViewController:web animated:YES];
             
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//            [alert show];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
             
         }else{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];
@@ -530,11 +530,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 #pragma mark - redViewDegelate
 -(void)openRedPackgeViewWithCount:(NSInteger)count
 {
-    [self viewWillAppear:YES];
-    [self viewDidAppear:YES];
-//    if ([self.interstitial isReady]) {
-//        [self.interstitial presentFromRootViewController:self];
-//    }
+
 }
 
 #pragma mark - alert

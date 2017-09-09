@@ -49,9 +49,12 @@
         if (error){
             
         }else{
-            BmobObject *obj = array.firstObject;
+            BmobObject *obj = array.lastObject;
             if ([[obj objectForKey:@"pass"] boolValue]) {
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pass"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }else {
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pass"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
         }

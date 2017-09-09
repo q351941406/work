@@ -201,11 +201,7 @@
 
 -(void)getClick
 {
-    if ([FHDufulatUtil sharedInstance].network == NO) {
-        [SYProgressHUD showToBottomText:@"当前无网络,请先检查网络链接"];
-        return;
-    }
-    
+
     
     [self haveMoney];
     

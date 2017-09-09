@@ -8,11 +8,17 @@
 
 #import "DuiHuanViewController.h"
 #import "GzwThemeTool.h"
+#import "SAMKeychain.h"
+#import <SAMKeychain/SAMKeychain.h>
+#import "GzwHUDTool.h"
+#import <StoreKit/StoreKit.h>
 
 
-@interface DuiHuanViewController ()<UIAlertViewDelegate>
+@interface DuiHuanViewController ()<UIAlertViewDelegate,SKStoreProductViewControllerDelegate>
+// 账户
 @property (weak, nonatomic) IBOutlet UITextField *acount;
 @property (weak, nonatomic) IBOutlet UITextField *emial;
+
 @property (strong,nonatomic) NSArray *moneybtns;
 @property (weak, nonatomic) IBOutlet UIButton *alipayButton;
 @property (weak, nonatomic) IBOutlet UIButton *wePayButton;
@@ -35,6 +41,7 @@
 
 @property (nonatomic,assign) NSInteger seletcdTag;
 @property(nonatomic,copy)NSString *msg;
+@property(nonatomic,strong)SKStoreProductViewController *storeVC;
 @end
 
 @implementation DuiHuanViewController
@@ -53,6 +60,17 @@
             self.msg = [obj objectForKey:@"msg"];
         }
         
+    }];
+    
+    //首先实例化一个VC
+    self.storeVC = [[SKStoreProductViewController alloc] init];
+    //然后设置代理，注意这很重要，不如弹出就没法dismiss了
+    self.storeVC.delegate = self;
+    //最后加载应用数据
+    [self.storeVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@(1278436431)} completionBlock:^(BOOL result, NSError * _Nullable error) {
+        if (error) {
+            [GzwHUDTool showErrorWithStatus:error.description];
+        }
     }];
     
     
@@ -127,39 +145,63 @@
 
 - (IBAction)subMit:(id)sender {
     
+    
+    if (10000 > self.jinbi_count) {
+        [SYProgressHUD showToBottomText:@"金币不够,无法满足兑换条件"];
+        return;
+    }
 
+    if (_acount.text.length == 0) {
+        [SYProgressHUD showToBottomText:@"请输入账号"];
+        return;
+    }
 
+    if (_emial.text.length == 0) {
+        [SYProgressHUD showToBottomText:@"请输入昵称"];
+        return;
+    }
     
-    NSArray *ary = @[@(self.firstCount),@(self.secondCount),@(self.thirdCount),@(self.forthCount)];
-    NSInteger seletedCount = [ary[self.seletcdTag] integerValue];
+    __block NSNumber *amount;
+    [self.moneybtns enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.selected) {
+           NSString *str = [obj.titleLabel.text stringByReplacingOccurrencesOfString:@"元" withString:@""];
+            amount = @(str.integerValue);
+        }
+    }];
     
-//    if (seletedCount > self.jinbi_count) {
-//        [SYProgressHUD showToBottomText:@"金币不够,无法满足兑换条件"];
-//        return;
-//    }
-//    
-//    if (_acount.text.length == 0) {
-//        [SYProgressHUD showToBottomText:@"请输入账号"];
-//        return;
-//    }
-//    
-//    if (_emial.text.length == 0) {
-//        [SYProgressHUD showToBottomText:@"请输入昵称"];
-//        return;
-//    }
+    [GzwHUDTool showWithStatus:@"正在提交"];
+    NSString *UUID = [SAMKeychain passwordForService:@"UUID" account:@"UUID"];// 从钥匙串中获取UUID
     
-    
-    
-    
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:self.msg message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alert show];
-    
+    // 提款
+    BmobObject *gameScore = [BmobObject objectWithClassName:@"backCash"];
+    [gameScore setObject:UUID forKey:@"UUID"];
+    [gameScore setObject:self.acount.text forKey:@"account"];
+    [gameScore setObject:self.emial.text forKey:@"name"];
+    [gameScore setObject:amount forKey:@"amount"];
+    [gameScore saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        //进行操作
+        if (isSuccessful) {
+            [GzwHUDTool dismiss];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提现成功，钱款会在1～3个工作日内转到你指定账户" message:@"接下来你需要前往appStore好评app，能加快提现速度哦！！！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去好论" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self presentViewController:self.storeVC animated:YES completion:nil];
+            }];
+            
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }else {
+            [GzwHUDTool showErrorWithStatus:error.description];
+        }
+        
+    }];
 
     
 }
 
-
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    //在代理方法里dismiss这个VC
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

@@ -276,13 +276,12 @@
     NSString *name;
     NSInteger count;
     
-    if (result == 0) {  //输赢
-//        name = [NSString stringWithFormat:@"✌️猜对了 基础 20 + 额外 %ld",(long)self.ewaiCount];
+    if (result == 0) {  //赢
         count = self.ewaiCount + 20;
     }else if (result == 2){
         name = @"😐平分秋色 奖励 10";
         count = 10;
-    }else{
+    }else{//输
         name = @"😖输了 安慰奖 1";
         count = 1;
     }
