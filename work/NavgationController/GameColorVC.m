@@ -11,7 +11,7 @@
 #define MAX_level 18
 
 #import "GameColorVC.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
+//#import <GoogleMobileAds/GoogleMobileAds.h>
 #import  <AVFoundation/AVFoundation.h>
 #import "GameResultCell.h"
 #import "RedPackgeView.h"
@@ -23,8 +23,8 @@
 #import "SAMKeychain.h"
 #import <SAMKeychain/SAMKeychain.h>
 
-@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,GADInterstitialDelegate,UIAlertViewDelegate,GADRewardBasedVideoAdDelegate,SKStoreProductViewControllerDelegate>
-@property(nonatomic, strong) GADInterstitial *interstitial;
+@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,UIAlertViewDelegate,SKStoreProductViewControllerDelegate>
+//@property(nonatomic, strong) GADInterstitial *interstitial;
 @property (weak, nonatomic) IBOutlet UIButton *shitouBtn;
 @property (weak, nonatomic) IBOutlet UIButton *buBtn;
 @property (weak, nonatomic) IBOutlet UIButton *jiandaoBtn;
@@ -408,24 +408,24 @@
 }
 
 #pragma mark - AD
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    
-    self.interstitial = [self createAndLoadInterstitial];
-    
-    if (self.isJingAlert) {
-        return;
-    }
-    if (self.isAlwaysAd) {
-        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-        }
-        return;
-    }
-    
-    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-        [self showAlert];
-    }
-}
+//- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+//    
+//    self.interstitial = [self createAndLoadInterstitial];
+//    
+//    if (self.isJingAlert) {
+//        return;
+//    }
+//    if (self.isAlwaysAd) {
+//        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+//            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+//        }
+//        return;
+//    }
+//    
+//    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+//        [self showAlert];
+//    }
+//}
 
 -(void)showAlert
 {
@@ -433,32 +433,32 @@
     [alert show];
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-    }else if (buttonIndex == 2){
-        self.isAlwaysAd = YES;
-        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-    }else if (buttonIndex == 3){
-        self.isJingAlert = YES;
-    }
-}
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == 1) {
+//        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+//    }else if (buttonIndex == 2){
+//        self.isAlwaysAd = YES;
+//        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+//    }else if (buttonIndex == 3){
+//        self.isJingAlert = YES;
+//    }
+//}
 
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-   didRewardUserWithReward:(GADAdReward *)reward {
-    NSString *rewardMessage =
-    [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf",
-    reward.type,
-    [reward.amount doubleValue]];
-    NSLog(@"%@", rewardMessage);
-    
-    //准备广告
-    [GADRewardBasedVideoAd sharedInstance].delegate = self;
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
-                                           withAdUnitID:@"ca-app-pub-7736315964094496/5234251018"];
-    [self haveMoneyWithCount:(arc4random() %101) + 87];
-}
+//- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+//   didRewardUserWithReward:(GADAdReward *)reward {
+//    NSString *rewardMessage =
+//    [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf",
+//    reward.type,
+//    [reward.amount doubleValue]];
+//    NSLog(@"%@", rewardMessage);
+//    
+//    //准备广告
+//    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+//    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
+//                                           withAdUnitID:@"ca-app-pub-7736315964094496/5234251018"];
+//    [self haveMoneyWithCount:(arc4random() %101) + 87];
+//}
 
 -(void)haveMoneyWithCount:(NSInteger)count
 {
@@ -470,13 +470,13 @@
     [bUser sub_updateInBackgroundWithResultBlock:nil];
 }
 
-- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Reward based video ad is received.");
-}
+//- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+//    NSLog(@"Reward based video ad is received.");
+//}
 
-- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Opened reward based video ad.");
-}
+//- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+//    NSLog(@"Opened reward based video ad.");
+//}
 
 
 #pragma mark - 懒加载
@@ -488,15 +488,15 @@
     return _results;
 }
 
-- (GADInterstitial *)createAndLoadInterstitial {
-    GADInterstitial *interstitial =
-    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-5630134464311346/8515874107"];
-    interstitial.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[kGADSimulatorID];
-    [interstitial loadRequest:request];
-    return interstitial;
-}
+//- (GADInterstitial *)createAndLoadInterstitial {
+//    GADInterstitial *interstitial =
+//    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-5630134464311346/8515874107"];
+//    interstitial.delegate = self;
+//    GADRequest *request = [GADRequest request];
+//    request.testDevices = @[kGADSimulatorID];
+//    [interstitial loadRequest:request];
+//    return interstitial;
+//}
 
 
 @end

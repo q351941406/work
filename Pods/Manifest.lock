@@ -23,9 +23,10 @@ PODS:
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
   - ContextMenu.iOS (1.1.0)
-  - Google-Mobile-Ads-SDK (7.22.0)
   - Harpy (4.1.6)
   - HKNewsBannerView (1.0.1)
+  - HSSetTableViewController (1.2.1):
+    - SDWebImage
   - IQKeyboardManager (4.0.13)
   - iRate (1.12.1)
   - JCore (1.1.5)
@@ -46,9 +47,26 @@ PODS:
     - NJKWebViewProgress/ProgressView (= 0.2.3)
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
+  - NYSegmentedControl (1.1.0)
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
   - SAMKeychain (1.5.2)
+  - SDCycleScrollView (1.73):
+    - SDWebImage (~> 4.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
+  - UICountingLabel (1.2.0)
   - WechatOpenSDK (1.7.9)
+  - WMPageController (2.4.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -57,9 +75,9 @@ DEPENDENCIES:
   - BmobSDK
   - ChameleonFramework (~> 2.1.0)
   - ContextMenu.iOS (~> 1.1.0)
-  - Google-Mobile-Ads-SDK
   - Harpy (~> 4.1.6)
   - HKNewsBannerView (~> 1.0.1)
+  - HSSetTableViewController (~> 1.2.1)
   - IQKeyboardManager (~> 4.0.13)
   - iRate (~> 1.12.1)
   - JPush
@@ -68,8 +86,13 @@ DEPENDENCIES:
   - Meiqia (~> 3.3.8)
   - MJExtension
   - MJRefresh (~> 3.1.12)
+  - NYSegmentedControl (~> 1.1.0)
+  - PNChart (~> 0.8.9)
+  - ReactiveCocoa (= 2.5)
   - SAMKeychain (~> 1.5.2)
+  - SDCycleScrollView (~> 1.66)
   - SVProgressHUD
+  - WMPageController
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -78,9 +101,9 @@ SPEC CHECKSUMS:
   BmobSDK: 952f0ca736deae9d1b6591d72337df7d9072d4f2
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   ContextMenu.iOS: 7f3b63915e660f51aada2c4285c40a837b2c9737
-  Google-Mobile-Ads-SDK: 1bdf1a4244d0553b1840239874c209c01aef055f
   Harpy: 00136386df1e2bb7554a5bef5d56529c9c33739a
   HKNewsBannerView: 2336ac6ce58cf891c73f96a5dad24b4d3d85e51a
+  HSSetTableViewController: 3ca6ccd01469ec217bd208ca8fb626d6f17f6964
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
@@ -91,10 +114,17 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
+  NYSegmentedControl: a92726c9e459919549f94328389ffcdaecefebfe
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDCycleScrollView: d0fd5fe40a80918371fd8939214eb3be81033d83
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
+  WMPageController: e9af37a2c7f259582578b35f2b67530b061e3862
 
-PODFILE CHECKSUM: 8118ea219987d2bade168b9c60b9ceffff67292c
+PODFILE CHECKSUM: 11ece4b95fd746fc7296831d74985a98b84bf8a1
 
 COCOAPODS: 1.2.0

@@ -10,6 +10,8 @@
 #import "HomeModel.h"
 #import "FHHomeCell.h"
 #import <AXWebViewController/AXWebViewController.h>
+#import "AppDelegate.h"
+
 
 @interface ZhiWuTBVC ()
 @property (nonatomic,strong) NSMutableArray *myDatas;
@@ -62,14 +64,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HomeModel *model = self.myDatas[indexPath.row];
     
+    AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
-    
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pass"]) {
-//        AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-//        [self.navigationController pushViewController:web animated:YES];
+    if (!a.pass) {
+        AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+        [self.navigationController pushViewController:web animated:YES];
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//        [alert show];
         
     }else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];

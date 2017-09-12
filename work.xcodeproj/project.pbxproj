@@ -43,7 +43,7 @@
 		4F7D6BF91F3BF90B00FBEB2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D6BF81F3BF90B00FBEB2E /* main.m */; };
 		4F7D6BFC1F3BF90B00FBEB2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D6BFB1F3BF90B00FBEB2E /* AppDelegate.m */; };
 		4F7D6BFF1F3BF90B00FBEB2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D6BFE1F3BF90B00FBEB2E /* ViewController.m */; };
-		4F7D6C021F3BF90B00FBEB2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D6C001F3BF90B00FBEB2E /* Main.storyboard */; };
+		4F7D6C021F3BF90B00FBEB2E /* mainSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D6C001F3BF90B00FBEB2E /* mainSB.storyboard */; };
 		4F7D6C041F3BF90B00FBEB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D6C031F3BF90B00FBEB2E /* Assets.xcassets */; };
 		4F7D6C071F3BF90B00FBEB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D6C051F3BF90B00FBEB2E /* LaunchScreen.storyboard */; };
 		4F7D6C131F3BF9B400FBEB2E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7D6C121F3BF9B400FBEB2E /* CoreLocation.framework */; };
@@ -177,9 +177,9 @@
 		046327FD1F608A1A003D88DD /* ContextMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContextMenuCell.xib; sourceTree = "<group>"; };
 		046328001F608EE2003D88DD /* YALNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALNavigationBar.h; sourceTree = "<group>"; };
 		046328011F608EE2003D88DD /* YALNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALNavigationBar.m; sourceTree = "<group>"; };
-		046328031F61347A003D88DD /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Main.strings; sourceTree = "<group>"; };
+		046328031F61347A003D88DD /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/mainSB.strings; sourceTree = "<group>"; };
 		046328041F61347B003D88DD /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		046328051F613490003D88DD /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/Main.strings"; sourceTree = "<group>"; };
+		046328051F613490003D88DD /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/mainSB.strings"; sourceTree = "<group>"; };
 		046328061F613491003D88DD /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4F7D6BF41F3BF90B00FBEB2E /* work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7D6BF81F3BF90B00FBEB2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		4F7D6BFB1F3BF90B00FBEB2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4F7D6BFD1F3BF90B00FBEB2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4F7D6BFE1F3BF90B00FBEB2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4F7D6C011F3BF90B00FBEB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F7D6C011F3BF90B00FBEB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/mainSB.storyboard; sourceTree = "<group>"; };
 		4F7D6C031F3BF90B00FBEB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F7D6C061F3BF90B00FBEB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F7D6C081F3BF90B00FBEB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -448,6 +448,13 @@
 			path = ContextMenuCell;
 			sourceTree = "<group>";
 		};
+		046D74FB1F680D0F00941043 /* 马甲1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "马甲1";
+			sourceTree = "<group>";
+		};
 		04B30FD01F63F42400BA257E /* 提现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +498,7 @@
 		4F7D6BF61F3BF90B00FBEB2E /* work */ = {
 			isa = PBXGroup;
 			children = (
+				046D74FB1F680D0F00941043 /* 马甲1 */,
 				04B30FD11F6403A000BA257E /* 游戏 */,
 				04B30FD01F63F42400BA257E /* 提现 */,
 				046327FA1F608A1A003D88DD /* ContextMenuCell */,
@@ -511,7 +519,7 @@
 				AD3EF2B31F4D116D006A4E59 /* ZhiWuTBVC.m */,
 				AD318D421F4188EA00598F23 /* LoginViewController.h */,
 				AD318D431F4188EA00598F23 /* LoginViewController.m */,
-				4F7D6C001F3BF90B00FBEB2E /* Main.storyboard */,
+				4F7D6C001F3BF90B00FBEB2E /* mainSB.storyboard */,
 				4F7D6C031F3BF90B00FBEB2E /* Assets.xcassets */,
 				4F7D6C051F3BF90B00FBEB2E /* LaunchScreen.storyboard */,
 				4F7D6C081F3BF90B00FBEB2E /* Info.plist */,
@@ -801,7 +809,7 @@
 				AD318D5F1F41CC6700598F23 /* rps_option_2.png in Resources */,
 				AD0022C31F3EDD1A00AD39A3 /* nav_back_icon@2x.png in Resources */,
 				AD318D5E1F41CC6700598F23 /* rps_option_1.png in Resources */,
-				4F7D6C021F3BF90B00FBEB2E /* Main.storyboard in Resources */,
+				4F7D6C021F3BF90B00FBEB2E /* mainSB.storyboard in Resources */,
 				046327FF1F608A1A003D88DD /* ContextMenuCell.xib in Resources */,
 				AD0022C41F3EDD1A00AD39A3 /* nav_back_icon@3x.png in Resources */,
 				AD318D5D1F41CC6700598F23 /* rps_main_background.png in Resources */,
@@ -929,14 +937,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4F7D6C001F3BF90B00FBEB2E /* Main.storyboard */ = {
+		4F7D6C001F3BF90B00FBEB2E /* mainSB.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4F7D6C011F3BF90B00FBEB2E /* Base */,
 				046328031F61347A003D88DD /* zh */,
 				046328051F613490003D88DD /* zh-Hans-CN */,
 			);
-			name = Main.storyboard;
+			name = mainSB.storyboard;
 			sourceTree = "<group>";
 		};
 		4F7D6C051F3BF90B00FBEB2E /* LaunchScreen.storyboard */ = {

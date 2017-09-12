@@ -13,7 +13,7 @@
 
 #import "IQKeyboardManager.h"
 #import "AppDelegate.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
+//#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UserNotifications/UserNotifications.h>
 #import <BmobSDK/Bmob.h>
 #import <BaiduMobStat.h>
@@ -22,47 +22,37 @@
 #import "SAMKeychain.h"
 #import <SAMKeychain/SAMKeychain.h>
 #import <MeiQiaSDK/MeiQiaSDK.h>
-#import "iRate.h"
+
 #import "Harpy.h"
+#import "IWNavigationController.h"
+#import "ViewController.h"
 
-
+#import "GZWTool.h"
 @interface AppDelegate ()<JPUSHRegisterDelegate>
-
+@property(nonatomic,strong)UITabBarController *tb;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [self setJupsh:launchOptions];
+
     [Bmob registerWithAppKey:BMOB_KEY];
     [[BaiduMobStat defaultStat] startWithAppId:@"046f44a2ba"];
-//    [GADMobileAds configureWithApplicationID:@"ca-app-pub-5630134464311346~2601202442"];
-    
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+
+    self.window                                    = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor                    = [UIColor whiteColor];
+    self.window.rootViewController = [UIStoryboard storyboardWithName:@"mainSB" bundle:nil].instantiateInitialViewController;
+    [self.window makeKeyAndVisible];
     
     [self creatUse];
-    
-    //询问是否通过审核了
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoring"];
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error){
-            
-        }else{
-            BmobObject *obj = array.lastObject;
-            if ([[obj objectForKey:@"pass"] boolValue]) {
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pass"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }else {
-                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pass"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
-        }
-        
-    }];
-    
     [self setupKeyboard];
-    [self setupRate];
+    
+    
+//    [self loadTureVC];
+    [self loadFalseVC];
+    
+    
     return YES;
 }
 
@@ -188,19 +178,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
--(void)setupRate
-{
-    [iRate sharedInstance].applicationBundleID = @"www.zuanqianqian.zuanqianqian";
-    [iRate sharedInstance].onlyPromptIfLatestVersion = YES;
-    [iRate sharedInstance].daysUntilPrompt           = 0;
-    [iRate sharedInstance].usesUntilPrompt           = 1;
-    [iRate sharedInstance].remindPeriod              = 1;//下次提醒多少天后再提醒，缺省为1天
-    //enable preview mode 预览模式是否启用 测试YES 发布NO
-    [iRate sharedInstance].previewMode               = NO;
-//    if ([[iRate sharedInstance] shouldPromptForRating]) {
-//        [[iRate sharedInstance] promptForRating];
-//    }
-}
+
 
 -(void)setupKeyboard
 {
@@ -220,5 +198,19 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     //    [manager disableToolbarInViewControllerClass:NSClassFromString(@"QYSessionViewController")];
     //    [manager disableInViewControllerClass:NSClassFromString(@"QYSessionViewController")];
 }
-
+// 显示真正的控制器
+-(void)loadTureVC
+{
+    UIViewController *c3=[[ViewController alloc]init];
+    IWNavigationController *nav3 = [[IWNavigationController alloc]initWithRootViewController:c3];
+    self.window                                    = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor                    = [UIColor whiteColor];
+    self.window.rootViewController                 = nav3;
+    [self.window makeKeyAndVisible];
+}
+// 展示马甲
+-(void)loadFalseVC
+{
+    
+}
 @end

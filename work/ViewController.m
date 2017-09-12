@@ -25,7 +25,7 @@
 #import "RedPackgeView.h"
 #import "FHUser.h"
 #import "LoginViewController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
+//#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "DuiHuanViewController.h"
 #import "ConfigModel.h"
 #import "ZhiWuTBVC.h"
@@ -39,22 +39,24 @@
 #import "ContextMenuCell.h"
 #import "YALNavigationBar.h"
 #import "Harpy.h"
+#import "AppDelegate.h"
+#import "iRate.h"
 
 
 static NSString *const menuCellIdentifier = @"rotationCell";
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,GADInterstitialDelegate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,weak) UIView *contronView;
 @property (nonatomic,weak) HKNewsBannerView *newsView;
-@property (nonatomic,weak) UIButton *gameBtn;
+@property (nonatomic,strong) UIButton *gameBtn;
 @property (nonatomic,strong) UIButton *talkBtn;
 @property (nonatomic,strong) DPScrollNumberLabel *numLabel; //金额
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) NSArray *titles;
 @property (nonatomic,strong) NSMutableArray *ads;
 @property (nonatomic,strong) NSMutableArray *datas;
-@property(nonatomic, strong) GADInterstitial *interstitial;
+//@property(nonatomic, strong) GADInterstitial *interstitial;
 @property (assign, nonatomic) NSInteger timeCount;
 @property (assign, nonatomic) BOOL isMove;
 @property (assign, nonatomic) BOOL isGoAppstore;
@@ -87,8 +89,33 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 //        [redView show];
 //    }
     
+    //询问是否通过审核了
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoring"];
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error){
+            
+        }else{
+            BmobObject *obj = array.lastObject;
+            if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+                [self loadData];
+                [self.navigationController.view addSubview:self.gameBtn];
+                UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+                self.navigationItem.rightBarButtonItem = right;
+                [self setupRate];
+            }else {// 在审核中
+                [self loadFalseData];
+            }
+            AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            a.pass = [[obj objectForKey:@"pass"] boolValue];
+        }
+        
+    }];
     
- 
+    
+    
+   
+
+    
     
     [self.view addSubview:self.talkBtn];
 }
@@ -97,7 +124,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 {
     [super viewWillDisappear:animated];
     if (![FHDufulatUtil sharedInstance].config.examine) {
-        _gameBtn.hidden = YES;
+        self.gameBtn.hidden = YES;
     }
 //    self.navigationController.navigationBar.translucent = YES;
 }
@@ -105,7 +132,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 -(void)viewWillAppear:(BOOL)animated
 {
     if (![FHDufulatUtil sharedInstance].config.examine) {
-        _gameBtn.hidden = NO;
+        self.gameBtn.hidden = NO;
     }
     [_newsView startRolling];
 //    self.navigationController.navigationBarHidden = NO;
@@ -132,6 +159,81 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     [[Harpy sharedInstance] setDebugEnabled:true];
     [[Harpy sharedInstance] checkVersion];
 }
+-(void)loadFalseData
+{
+    NSArray *title = @[
+                       @"富士康直招普工临时工240每天",
+                       @"直招网络主播-可新人（包培训）",
+                       @"5500月薪电子厂招普工临时工",
+                       @"华为普工220/天包吃住待遇优",
+                       @"小时工-普工220/天包吃住",
+                       @"深圳8090禾服新人试衣",
+                       ];
+    
+    NSArray *left = @[
+                      @"靠谱工作",
+                      @"靠谱工作",
+                      @"靠谱工作",
+                      @"靠谱工作",
+                      @"靠谱工作",
+                      @"靠谱工作",
+                      ];
+    
+    NSArray *right = @[
+                       @"240",
+                       @"400",
+                       @"200",
+                       @"220",
+                       @"20",
+                       @"380",
+                       ];
+    
+    NSArray *url = @[
+                     @"http://m.doumi.58.com/sz/jz_3322227.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=2&area=4",
+                     @"http://m.doumi.58.com/sz/jz_3322242.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=5&area=4",
+                     @"http://m.doumi.58.com/sz/jz_3322129.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=6&area=4",
+                     @"http://m.doumi.58.com/sz/jz_3187044.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=7&area=4",
+                     @"http://m.doumi.58.com/sz/jz_3317943.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=10&area=4",
+                     @"http://m.58.com/sz/liyiyanyi/31036516818105x.shtml",
+                     ];
+    [title enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        HomeModel *model = [[HomeModel alloc]init];
+        model.title = title[idx];
+        model.subtitle = left[idx];
+        model.count = [right[idx] integerValue];
+        model.URL = url[idx];
+        [self.datas addObject:model];
+    }];
+    [self.tableView reloadData];
+}
+-(void)loadData
+{
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"tasks"];
+    
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error){
+            //进行错误处理
+            [SYProgressHUD showToBottomText:error.description];
+        }else{
+            if (array) {
+                [self.datas removeAllObjects];
+                NSArray *sortedArray = [array sortedArrayUsingComparator:^NSComparisonResult(BmobObject *p1, BmobObject *p2){
+                    return [[p1 objectForKey:@"sort"] compare:[p2 objectForKey:@"sort"]];
+                }];
+                for (BmobObject *kkk in sortedArray) {
+                    NSDictionary *obj = [kkk mj_keyValues];
+                    HomeModel *model = [HomeModel mj_objectWithKeyValues:[obj objectForKey:@"dataDic"]];
+                    model.ID = [obj objectForKey:@"objectId"];
+                    [self.datas addObject:model];
+                }
+                
+                [self.tableView reloadData];
+                
+//                [self initGameBtn];
+            }
+        }
+    }];
+}
 -(void)initUI
 {
     
@@ -143,8 +245,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     
     [self.view addSubview:self.tableView];
     
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
-    self.navigationItem.rightBarButtonItem = right;
+    
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, -HeaderH, self.view.width, HeaderH)];
     [self.tableView addSubview:headerView];
@@ -248,24 +349,40 @@ static NSString *const menuCellIdentifier = @"rotationCell";
         
     }];
 }
-
--(void)initGameBtn
+-(UIButton *)gameBtn
 {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    button.center = CGPointMake(CGRectGetMidX(self.view.frame), SCREEN_HEIGHT - 70);
-    button.layer.cornerRadius = 25.0f;
-    button.backgroundColor = [GzwThemeTool theme];
-    [button addTarget:self action:@selector(pushMethod) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"luck_rps_%0_thumb"] forState:UIControlStateNormal];
-    [self.navigationController.view addSubview:button];
-    button.hidden = [FHDufulatUtil sharedInstance].config.examine;
-    
-    _gameBtn = button;
-    
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-    _timer = timer;
+    if (!_gameBtn) {
+        _gameBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        _gameBtn.center = CGPointMake(CGRectGetMidX(self.view.frame), SCREEN_HEIGHT - 70);
+        _gameBtn.layer.cornerRadius = 25.0f;
+        _gameBtn.backgroundColor = [GzwThemeTool theme];
+        [_gameBtn addTarget:self action:@selector(pushMethod) forControlEvents:UIControlEventTouchUpInside];
+        [_gameBtn setImage:[UIImage imageNamed:@"luck_rps_%0_thumb"] forState:UIControlStateNormal];
+        
+        _gameBtn.hidden = [FHDufulatUtil sharedInstance].config.examine;
+        NSTimer *timer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        _timer = timer;
+    }
+    return _gameBtn;
 }
+//-(void)initGameBtn
+//{
+//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+//    button.center = CGPointMake(CGRectGetMidX(self.view.frame), SCREEN_HEIGHT - 70);
+//    button.layer.cornerRadius = 25.0f;
+//    button.backgroundColor = [GzwThemeTool theme];
+//    [button addTarget:self action:@selector(pushMethod) forControlEvents:UIControlEventTouchUpInside];
+//    [button setImage:[UIImage imageNamed:@"luck_rps_%0_thumb"] forState:UIControlStateNormal];
+//    [self.navigationController.view addSubview:button];
+//    button.hidden = [FHDufulatUtil sharedInstance].config.examine;
+//    
+//    _gameBtn = button;
+//    
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:0.4 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+//    _timer = timer;
+//}
 
 
 
@@ -273,7 +390,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 {
     _timeCount ++;
     NSInteger cont = _timeCount%self.titles.count;
-    [_gameBtn setTitle:_titles[cont] forState:0];
+    [self.gameBtn setTitle:_titles[cont] forState:0];
 }
 
 #pragma mark - network
@@ -283,6 +400,19 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 
 #pragma mark - action
+-(void)setupRate
+{
+    [iRate sharedInstance].applicationBundleID = @"www.zuanqianqian.zuanqianqian";
+    [iRate sharedInstance].onlyPromptIfLatestVersion = YES;
+    [iRate sharedInstance].daysUntilPrompt           = 0;
+    [iRate sharedInstance].usesUntilPrompt           = 1;
+    [iRate sharedInstance].remindPeriod              = 1;//下次提醒多少天后再提醒，缺省为1天
+    //enable preview mode 预览模式是否启用 测试YES 发布NO
+    [iRate sharedInstance].previewMode               = NO;
+    //    if ([[iRate sharedInstance] shouldPromptForRating]) {
+    //        [[iRate sharedInstance] promptForRating];
+    //    }
+}
 void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 
     
@@ -411,7 +541,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
             case 2:
             {
                 
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"文本对话框" message:@"登录和密码对话框示例" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"文本对话框" message:nil preferredStyle:UIAlertControllerStyleAlert];
                 [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
                     textField.text = [SAMKeychain passwordForService:@"UUID" account:@"UUID"];
                 }];
@@ -476,13 +606,15 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         HomeModel *model = self.datas[indexPath.row];
         
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pass"]) {
+        AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        
+        if (!a.pass) {
             
-//                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-//                    [self.navigationController pushViewController:web animated:YES];
+                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+                    [self.navigationController pushViewController:web animated:YES];
             
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//            [alert show];
             
         }else{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];
@@ -509,7 +641,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 {
     self.isMove = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        _gameBtn.top = SCREEN_HEIGHT;
+        self.gameBtn.top = SCREEN_HEIGHT;
     }];
 }
 
@@ -517,7 +649,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 {
     if (_isMove && !decelerate) {
         [UIView animateWithDuration:0.3 animations:^{
-            _gameBtn.top = SCREEN_HEIGHT - 70;
+            self.gameBtn.top = SCREEN_HEIGHT - 70;
         }];
     }
 }
@@ -525,7 +657,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.isMove = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        _gameBtn.top = SCREEN_HEIGHT - 70;
+        self.gameBtn.top = SCREEN_HEIGHT - 70;
     }];
 }
 
@@ -579,31 +711,6 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
 {
     if (_datas == nil) {
         _datas = [NSMutableArray array];
-        BmobQuery   *bquery = [BmobQuery queryWithClassName:@"tasks"];
-        
-        [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            if (error){
-                //进行错误处理
-                [SYProgressHUD showToBottomText:error.description];
-            }else{
-                if (array) {
-                    [self.datas removeAllObjects];
-                    NSArray *sortedArray = [array sortedArrayUsingComparator:^NSComparisonResult(BmobObject *p1, BmobObject *p2){
-                        return [[p1 objectForKey:@"sort"] compare:[p2 objectForKey:@"sort"]];
-                    }];
-                    for (BmobObject *kkk in sortedArray) {
-                        NSDictionary *obj = [kkk mj_keyValues];
-                        HomeModel *model = [HomeModel mj_objectWithKeyValues:[obj objectForKey:@"dataDic"]];
-                        model.ID = [obj objectForKey:@"objectId"];
-                        [self.datas addObject:model];
-                    }
-                   
-                    [self.tableView reloadData];
-                    
-                    [self initGameBtn];
-                }
-            }
-        }];
     }
     return _datas;
 }
@@ -636,15 +743,15 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
     return _ads;
 }
 
-- (GADInterstitial *)createAndLoadInterstitial {
-    GADInterstitial *interstitial =
-    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7736315964094496/6547332680"];
-    interstitial.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[kGADSimulatorID];
-    [interstitial loadRequest:request];
-    return interstitial;
-}
+//- (GADInterstitial *)createAndLoadInterstitial {
+//    GADInterstitial *interstitial =
+//    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7736315964094496/6547332680"];
+//    interstitial.delegate = self;
+//    GADRequest *request = [GADRequest request];
+//    request.testDevices = @[kGADSimulatorID];
+//    [interstitial loadRequest:request];
+//    return interstitial;
+//}
 -(NSArray *)menuTitles
 {
     if (!_menuTitles) {
