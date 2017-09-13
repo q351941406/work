@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  work
+//  JianGuo
 //
-//  Created by pc on 2017/8/10.
-//  Copyright © 2017年 pc. All rights reserved.
+//  Created by apple on 16/3/1.
+//  Copyright © 2016年 ningcol. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property(nonatomic,assign)BOOL pass;
+
 @end
 

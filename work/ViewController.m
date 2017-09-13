@@ -10,7 +10,6 @@
 
 #define HeaderH 240
 #import "ViewController.h"
-#import "ViewUtils.h"
 #import "CFGradientLabel.h"
 #import "DPScrollNumberLabel.h"
 #import "FHTopImgBottomLabel.h"
@@ -24,7 +23,7 @@
 #import "LLWaveView.h"
 #import "RedPackgeView.h"
 #import "FHUser.h"
-#import "LoginViewController.h"
+
 //#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "DuiHuanViewController.h"
 #import "ConfigModel.h"
