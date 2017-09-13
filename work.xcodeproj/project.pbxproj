@@ -36,6 +36,7 @@
 		041551741F580C0000C833E8 /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0415515E1F580C0000C833E8 /* UIImage+BlurGlass.m */; };
 		041551771F580CA700C833E8 /* CYLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 041551761F580CA700C833E8 /* CYLoginRegisterTextField.m */; };
 		0415517A1F580CC000C833E8 /* GzwHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 041551791F580CC000C833E8 /* GzwHUDTool.m */; };
+		044B76CD1F697CA400DF05A7 /* m1AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044B76CC1F697CA400DF05A7 /* m1AppDelegate.m */; };
 		046327FE1F608A1A003D88DD /* ContextMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046327FC1F608A1A003D88DD /* ContextMenuCell.m */; };
 		046327FF1F608A1A003D88DD /* ContextMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046327FD1F608A1A003D88DD /* ContextMenuCell.xib */; };
 		046328021F608EE2003D88DD /* YALNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 046328011F608EE2003D88DD /* YALNavigationBar.m */; };
@@ -172,6 +173,8 @@
 		041551761F580CA700C833E8 /* CYLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLoginRegisterTextField.m; sourceTree = "<group>"; };
 		041551781F580CC000C833E8 /* GzwHUDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GzwHUDTool.h; sourceTree = "<group>"; };
 		041551791F580CC000C833E8 /* GzwHUDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GzwHUDTool.m; sourceTree = "<group>"; };
+		044B76CB1F697CA400DF05A7 /* m1AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m1AppDelegate.h; sourceTree = "<group>"; };
+		044B76CC1F697CA400DF05A7 /* m1AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m1AppDelegate.m; sourceTree = "<group>"; };
 		046327FB1F608A1A003D88DD /* ContextMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuCell.h; sourceTree = "<group>"; };
 		046327FC1F608A1A003D88DD /* ContextMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCell.m; sourceTree = "<group>"; };
 		046327FD1F608A1A003D88DD /* ContextMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContextMenuCell.xib; sourceTree = "<group>"; };
@@ -451,6 +454,8 @@
 		046D74FB1F680D0F00941043 /* 马甲1 */ = {
 			isa = PBXGroup;
 			children = (
+				044B76CB1F697CA400DF05A7 /* m1AppDelegate.h */,
+				044B76CC1F697CA400DF05A7 /* m1AppDelegate.m */,
 			);
 			path = "马甲1";
 			sourceTree = "<group>";
@@ -890,6 +895,7 @@
 				ADAEDE901F3C6BDB000AAC8F /* FHHomeCell.m in Sources */,
 				0415516F1F580C0000C833E8 /* UINavigationController+Gzw.m in Sources */,
 				041551741F580C0000C833E8 /* UIImage+BlurGlass.m in Sources */,
+				044B76CD1F697CA400DF05A7 /* m1AppDelegate.m in Sources */,
 				ADAEDE821F3C2970000AAC8F /* ViewUtils.m in Sources */,
 				041551641F580C0000C833E8 /* NSMutableAttributedString+Extends.m in Sources */,
 				ADB821B11F4046E400318342 /* RedPackgeView.m in Sources */,
