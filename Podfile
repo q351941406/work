@@ -28,4 +28,5 @@ pod 'SDCycleScrollView', '~> 1.66'
 pod 'NYSegmentedControl', '~> 1.1.0'
 pod 'WMPageController'
 pod 'HSSetTableViewController', '~> 1.2.1'
+pod 'SVWebViewController', '~> 1.0'
 end

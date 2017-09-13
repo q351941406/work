@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D68D4B4226E9BFA4DA446387C3D0A269'
-               BlueprintName = 'SAMKeychain'
+               BlueprintIdentifier = '5E5DECF3C01D72C09E89C8B939593A72'
+               BlueprintName = 'SVWebViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SAMKeychain.framework'>
+               BuildableName = 'SVWebViewController.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

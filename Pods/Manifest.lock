@@ -64,6 +64,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
+  - SVWebViewController (1.0)
   - UICountingLabel (1.2.0)
   - WechatOpenSDK (1.7.9)
   - WMPageController (2.4.0)
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - SAMKeychain (~> 1.5.2)
   - SDCycleScrollView (~> 1.66)
   - SVProgressHUD
+  - SVWebViewController (~> 1.0)
   - WMPageController
 
 SPEC CHECKSUMS:
@@ -121,10 +123,11 @@ SPEC CHECKSUMS:
   SDCycleScrollView: d0fd5fe40a80918371fd8939214eb3be81033d83
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
   WMPageController: e9af37a2c7f259582578b35f2b67530b061e3862
 
-PODFILE CHECKSUM: 11ece4b95fd746fc7296831d74985a98b84bf8a1
+PODFILE CHECKSUM: 9f9d5f449f7de5197ba6d7767037b42babdb1903
 
 COCOAPODS: 1.2.0

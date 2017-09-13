@@ -41,7 +41,7 @@
 #import "Harpy.h"
 #import "AppDelegate.h"
 #import "iRate.h"
-
+#import "SVWebViewController.h"
 
 static NSString *const menuCellIdentifier = @"rotationCell";
 
@@ -162,12 +162,12 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 -(void)loadFalseData
 {
     NSArray *title = @[
-                       @"富士康直招普工临时工240每天",
-                       @"直招网络主播-可新人（包培训）",
-                       @"5500月薪电子厂招普工临时工",
-                       @"华为普工220/天包吃住待遇优",
-                       @"小时工-普工220/天包吃住",
-                       @"深圳8090禾服新人试衣",
+                       @"火爆招募电脑手机小时工",
+                       @"邯郸顺丰兼职分拣员",
+                       @"兼职奥数老师招聘",
+                       @"代招兼职送餐员",
+                       @"大型超市招聘兼职促销员",
+                       @"诚聘销售精英业务员",
                        ];
     
     NSArray *left = @[
@@ -189,12 +189,12 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                        ];
     
     NSArray *url = @[
-                     @"http://m.doumi.58.com/sz/jz_3322227.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=2&area=4",
-                     @"http://m.doumi.58.com/sz/jz_3322242.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=5&area=4",
-                     @"http://m.doumi.58.com/sz/jz_3322129.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=6&area=4",
-                     @"http://m.doumi.58.com/sz/jz_3187044.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=7&area=4",
-                     @"http://m.doumi.58.com/sz/jz_3317943.htm?from=58_58pc_lbpost&ca_name=58&ca_source=58pc&ca_from=lbpost&ca_city_id=17&ca_kw=10&area=4",
-                     @"http://m.58.com/sz/liyiyanyi/31036516818105x.shtml",
+                     @"http://wap.ssjzw.com/hd/job/2011853935.html",
+                     @"http://wap.ssjzw.com/hd/job/2011911540.html",
+                     @"http://wap.ssjzw.com/hd/job/2011909091.html",
+                     @"http://wap.ssjzw.com/hd/job/2011909090.html",
+                     @"http://wap.ssjzw.com/hd/job/2011908944.html",
+                     @"http://wap.ssjzw.com/hd/job/2011908943.html",
                      ];
     [title enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         HomeModel *model = [[HomeModel alloc]init];
@@ -609,9 +609,13 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
         
         if (!a.pass) {
+            [UITabBar appearance].barTintColor = [UIColor whiteColor];
+            NSURL *URL = [NSURL URLWithString:model.URL];
+            SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
+            [self.navigationController pushViewController:webViewController animated:YES];
             
-                    AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-                    [self.navigationController pushViewController:web animated:YES];
+                    //AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+                    //[self.navigationController pushViewController:web animated:YES];
             
 //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //            [alert show];
