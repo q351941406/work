@@ -49,7 +49,7 @@
     [self setupKeyboard];
     
     
-   //[self loadTureVC];
+   [self loadTureVC];
     [self loadFalseVC];
     
     
