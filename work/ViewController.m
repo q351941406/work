@@ -309,6 +309,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     }
 
     HKNewsBannerView *newsView = [[HKNewsBannerView alloc] initWithFrame:CGRectMake(20, 210, contonView.width, 30)];
+    
     if (self.ads.count == 0) {
         NSArray *newsArr = @[@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中..."];
         newsView.newsArray = newsArr;
