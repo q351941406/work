@@ -28,6 +28,8 @@
 #import "QLHudView.h"
 #import "CoreLaunchCool.h"
 #import "UIWindow+Extension.h"
+#import "IWNavigationController.h"
+#import "ViewController.h"
 #define SV_APP_EXTENSIONS
 
 static NSString *BeeCloudAppID = @"3a9ecbbb-d431-4cd8-9af9-5e44ba504f9a";
@@ -102,10 +104,38 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     
     self.window.backgroundColor = BACKCOLORGRAY;
     
-     [self.window switchRootViewController];
     
-    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+    self.window.rootViewController = [UIStoryboard storyboardWithName:@"mainSB" bundle:nil].instantiateInitialViewController;
+    
+    
     [self.window makeKeyAndVisible];
+    
+    
+    [Bmob registerWithAppKey:@"d4143c09cdb7e5d485251b00b232c526"];
+    //询问是否通过审核了
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend"];
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error){
+            
+        }else{
+            [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([[obj objectForKey:@"name"] isEqualToString:@"马甲1"]) {
+                    if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+                        [self loadTureVC];
+                    }else {// 在审核中
+                        self.window.rootViewController = [[MyTabBarController alloc] init];
+                        [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+                    }
+                }
+                
+            }];
+            
+            
+            
+        }
+        
+    }];
+    
     
     
     return YES;
@@ -233,7 +263,16 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     }
     return YES;
 }
-
+// 显示真正的控制器
+-(void)loadTureVC
+{
+    UIViewController *c3=[[ViewController alloc]init];
+    IWNavigationController *nav3 = [[IWNavigationController alloc]initWithRootViewController:c3];
+    self.window                                    = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor                    = [UIColor whiteColor];
+    self.window.rootViewController                 = nav3;
+    [self.window makeKeyAndVisible];
+}
 
 
 @end

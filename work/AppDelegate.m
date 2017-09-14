@@ -6,7 +6,7 @@
 //  Copyright © 2017年 pc. All rights reserved.
 //
 
-#define BMOB_KEY @"d4143c09cdb7e5d485251b00b232c526"
+
 #define GOOLE_KEY @"ca-app-pub-7736315964094496~1486577696"
 
 #define JPUSH_KEY @"3ec8ddac026bf125d8edb52d"
@@ -37,7 +37,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [Bmob registerWithAppKey:BMOB_KEY];
+    [Bmob registerWithAppKey:@"d4143c09cdb7e5d485251b00b232c526"];
     [[BaiduMobStat defaultStat] startWithAppId:@"046f44a2ba"];
 
     self.window                                    = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

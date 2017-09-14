@@ -88,29 +88,29 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 //        [redView show];
 //    }
     
-    //询问是否通过审核了
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoring"];
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error){
-            
-        }else{
-            BmobObject *obj = array.lastObject;
-            if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
-                [self loadData];
-                [self.navigationController.view addSubview:self.gameBtn];
-                UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
-                self.navigationItem.rightBarButtonItem = right;
-                [self setupRate];
-            }else {// 在审核中
-                [self loadFalseData];
-            }
-            AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            a.pass = [[obj objectForKey:@"pass"] boolValue];
-        }
-        
-    }];
+//    //询问是否通过审核了
+//    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoring"];
+//    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+//        if (error){
+//            
+//        }else{
+//            BmobObject *obj = array.lastObject;
+//            if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+//                
+//            }else {// 在审核中
+//                [self loadFalseData];
+//            }
+//            AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            a.pass = [[obj objectForKey:@"pass"] boolValue];
+//        }
+//        
+//    }];
     
-    
+    [self loadData];
+    [self.navigationController.view addSubview:self.gameBtn];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+    self.navigationItem.rightBarButtonItem = right;
+    [self setupRate];
     
    
 
@@ -605,23 +605,23 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         HomeModel *model = self.datas[indexPath.row];
         
-        AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        
-        if (!a.pass) {
-            [UITabBar appearance].barTintColor = [UIColor whiteColor];
-            NSURL *URL = [NSURL URLWithString:model.URL];
-            SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
-            [self.navigationController pushViewController:webViewController animated:YES];
-            
-                    //AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-                    //[self.navigationController pushViewController:web animated:YES];
-            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//            [alert show];
-            
-        }else{
+//        AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        
+//        if (!a.pass) {
+//            [UITabBar appearance].barTintColor = [UIColor whiteColor];
+//            NSURL *URL = [NSURL URLWithString:model.URL];
+//            SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
+//            [self.navigationController pushViewController:webViewController animated:YES];
+//            
+//                    //AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
+//                    //[self.navigationController pushViewController:web animated:YES];
+//            
+////            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+////            [alert show];
+//            
+//        }else{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];
-        }
+//        }
     }
     
 }

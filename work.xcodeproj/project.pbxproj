@@ -2981,7 +2981,7 @@
 				TargetAttributes = {
 					4F7D6BF31F3BF90B00FBEB2E = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = TVGEQHNGJH;
+						DevelopmentTeam = 4FT7Q2GPC6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3717,7 +3717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = work/work.entitlements;
-				DEVELOPMENT_TEAM = TVGEQHNGJH;
+				DEVELOPMENT_TEAM = 4FT7Q2GPC6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3742,7 +3742,7 @@
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/Umeng",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.zuanqianqian.zuanqianqian;
+				PRODUCT_BUNDLE_IDENTIFIER = www.jianzhifeng.jianzhifeng..;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3755,7 +3755,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = work/work.entitlements;
-				DEVELOPMENT_TEAM = TVGEQHNGJH;
+				DEVELOPMENT_TEAM = 4FT7Q2GPC6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3780,7 +3780,7 @@
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/Umeng",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.zuanqianqian.zuanqianqian;
+				PRODUCT_BUNDLE_IDENTIFIER = www.jianzhifeng.jianzhifeng..;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
