@@ -86,7 +86,6 @@
 		044DCEB51F69805F00BCD1DF /* ZJSegmentStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC7711F69805A00BCD1DF /* ZJSegmentStyle.m */; };
 		044DCEB61F69805F00BCD1DF /* ZJTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC7731F69805A00BCD1DF /* ZJTitleView.m */; };
 		044DCEBB1F69805F00BCD1DF /* JGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC77E1F69805A00BCD1DF /* JGUser.m */; };
-		044DCEBC1F69805F00BCD1DF /* com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata in Resources */ = {isa = PBXBuildFile; fileRef = 044DC7801F69805A00BCD1DF /* com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata */; };
 		044DCEBD1F69805F00BCD1DF /* JGHTTPClient+Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC7821F69805A00BCD1DF /* JGHTTPClient+Address.m */; };
 		044DCEBE1F69805F00BCD1DF /* JGHTTPClient+Demand.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC7841F69805A00BCD1DF /* JGHTTPClient+Demand.m */; };
 		044DCEBF1F69805F00BCD1DF /* JGHTTPClient+DemandOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 044DC7861F69805A00BCD1DF /* JGHTTPClient+DemandOperation.m */; };
@@ -702,7 +701,6 @@
 		044DC7731F69805A00BCD1DF /* ZJTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTitleView.m; sourceTree = "<group>"; };
 		044DC77D1F69805A00BCD1DF /* JGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGUser.h; sourceTree = "<group>"; };
 		044DC77E1F69805A00BCD1DF /* JGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGUser.m; sourceTree = "<group>"; };
-		044DC7801F69805A00BCD1DF /* com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata"; sourceTree = "<group>"; };
 		044DC7811F69805A00BCD1DF /* JGHTTPClient+Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JGHTTPClient+Address.h"; sourceTree = "<group>"; };
 		044DC7821F69805A00BCD1DF /* JGHTTPClient+Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JGHTTPClient+Address.m"; sourceTree = "<group>"; };
 		044DC7831F69805A00BCD1DF /* JGHTTPClient+Demand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JGHTTPClient+Demand.h"; sourceTree = "<group>"; };
@@ -1821,7 +1819,6 @@
 		044DC77F1F69805A00BCD1DF /* NetService */ = {
 			isa = PBXGroup;
 			children = (
-				044DC7801F69805A00BCD1DF /* com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata */,
 				044DC7811F69805A00BCD1DF /* JGHTTPClient+Address.h */,
 				044DC7821F69805A00BCD1DF /* JGHTTPClient+Address.m */,
 				044DC7831F69805A00BCD1DF /* JGHTTPClient+Demand.h */,
@@ -3019,7 +3016,6 @@
 				044DD16D1F69806100BCD1DF /* MyBuySkillDetailViewController.xib in Resources */,
 				AD318D5B1F41CC6700598F23 /* luck_rps_3_thumb.png in Resources */,
 				ADFFD7D41F46D75300FD76EC /* FHExplainxibView.xib in Resources */,
-				044DCEBC1F69805F00BCD1DF /* com.woniukeji.JianguoApp 2016-03-10 09:36.58.185.xcappdata in Resources */,
 				044DD1641F69806100BCD1DF /* MakeEvaluateViewController.xib in Resources */,
 				ADB57F951F48685B00DB80B3 /* DuiHuanViewController.xib in Resources */,
 				044DD0131F69806000BCD1DF /* SkillExpertCell.xib in Resources */,
