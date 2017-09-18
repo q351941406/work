@@ -137,7 +137,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRt-St-8Yw" customClass="FHTopImgBottomLabel">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRt-St-8Yw" customClass="FHTopImgBottomLabel">
                     <rect key="frame" x="16" y="1170" width="60" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="eYk-M7-Z4b"/>
@@ -149,7 +149,7 @@
                         <action selector="meirirenwu:" destination="-1" eventType="touchUpInside" id="GDj-EE-Pmd"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-QK-u39" customClass="FHTopImgBottomLabel">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-QK-u39" customClass="FHTopImgBottomLabel">
                     <rect key="frame" x="16" y="1104" width="60" height="58"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Jnh-CC-MFe"/>

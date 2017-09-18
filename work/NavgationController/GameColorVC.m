@@ -322,6 +322,7 @@
                     [obj setObject:@(count + [[obj objectForKey:@"Gold"] integerValue]).stringValue forKey:@"Gold"];
                     [obj sub_updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                         [GzwHUDTool dismiss];
+                        self.jinBILabel.text = @([[obj objectForKey:@"Gold"] integerValue]).stringValue;
                     }];
                 }
                 

@@ -36,7 +36,18 @@
     NSArray *array = @[[GzwThemeTool theme],[UIColor whiteColor]];
     self.backView.backgroundColor =  RandomFlatColorExcluding(array);
 //        self.backView.backgroundColor =  RandomFlatColorWithShade(UIShadeStyleLight);
+    
+    self.backView.backgroundColor = [UIColor colorWithGradientStyle:0 withFrame:CGRectMake(0, 0, 500, 500) andColors:@[
+//                                                                                                                       HexColor(@"f54ea2"),
+//                                                                                                                       HexColor(@"ff7676"),
+//                                                                                                                       HexColor(@"fce38a"),
+//                                                                                                                       HexColor(@"f38181")
+                                                                                                                       HexColor(@"17ead9"),
+                                                                                                                       HexColor(@"6078ea")
+                                                                                                                       ]];
+    
     _title.textColor = ContrastColor(self.backView.backgroundColor, YES);
+    _title.textColor = [UIColor whiteColor];
     _subTitle.textColor = _title.textColor;
     _desTitle.textColor = _title.textColor;
 }
