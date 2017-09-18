@@ -174,10 +174,7 @@
     
     [JGHTTPClient getDemandListWithSchoolId:nil
                                    cityCode:nil keywords:nil orderBy:nil type:nil sex:nil userId:self.userId pageCount:count Success:^(id responseObject) {
-                                       //        [SVProgressHUD dismiss];
-                                       //        JGLog(@"%@",responseObject);
-                                       //        self.dataArr = [DemandModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-                                       //        [self.tableView reloadData];
+                                      
                                        
                                        [SVProgressHUD dismiss];
                                        [self.tableView.mj_header endRefreshing];
@@ -201,24 +198,12 @@
                                            
                                            
                                            [_tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-                                           /*
-                                            NSMutableArray *sections = [NSMutableArray array];
-                                            for (DemandModel *model in [DemandModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]) {
-                                            [self.dataArr addObject:model];
-                                            NSIndexSet* section = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];
-                                            [sections addObject:section];
-                                            }
-                                            [_tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.dataArr.count-sections.count, sections.count)] withRowAnimation:UITableViewRowAnimationFade];
-                                            */
+                                           
                                            return;
                                            
                                        }else{
                                            self.dataArr = [DemandModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-                                           //            if (self.dataArr.count == 0) {
-                                           //                bgView.hidden = NO;
-                                           //            }else{
-                                           //                bgView.hidden = YES;
-                                           //            }
+                                          
                                        }
                                        
                                        [self.tableView reloadData];
@@ -238,7 +223,7 @@
 
 -(void)requestEvaluatesWithCount:(NSString *)count
 {
-    JGSVPROGRESSLOAD(@"加载中...");
+    
     [JGHTTPClient getEvaluatesWithUserId:self.userId pageNum:count Success:^(id responseObject) {
         
         [SVProgressHUD dismiss];
@@ -263,24 +248,12 @@
             
             
             [_tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-            /*
-             NSMutableArray *sections = [NSMutableArray array];
-             for (DemandModel *model in [DemandModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]) {
-             [self.dataArr addObject:model];
-             NSIndexSet* section = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];
-             [sections addObject:section];
-             }
-             [_tableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.dataArr.count-sections.count, sections.count)] withRowAnimation:UITableViewRowAnimationFade];
-             */
+            
             return;
             
         }else{
             self.dataArr = [EvaluateModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            //            if (self.dataArr.count == 0) {
-            //                bgView.hidden = NO;
-            //            }else{
-            //                bgView.hidden = YES;
-            //            }
+           
         }
         
         [self.tableView reloadData];
@@ -300,7 +273,7 @@
 
 -(void)requestSkillsWithCount:(NSString *)count
 {
-    JGSVPROGRESSLOAD(@"加载中...");
+    
     [JGHTTPClient getSkillListWithSchoolId:nil cityCode:nil keywords:nil orderBy:nil type:nil sex:nil userId:self.userId pageCount:count Success:^(id responseObject) {
         
         [SVProgressHUD dismiss];

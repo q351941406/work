@@ -246,34 +246,7 @@
                 [self.buyB setBackgroundColor:LIGHTGRAY1];
                 
             }
-            /*
-            if (detailModel.demandStatus.integerValue==1) {
-                
-                
-                if (detailModel.enrollStatus.integerValue!=0) {
-                    [self.signButton setTitle:@"已报名" forState:UIControlStateNormal];
-                    self.signButton.userInteractionEnabled = NO;
-                    [self.signButton setBackgroundColor:LIGHTGRAY1];
-                }
-                
-            }else{
-                
-                [self.signButton setTitle:@"已完成" forState:UIControlStateNormal];
-                self.signButton.userInteractionEnabled = NO;
-                [self.signButton setBackgroundColor:LIGHTGRAY1];
-            }
-            
-            self.likeView.image = [UIImage imageNamed:detailModel.isLike.integerValue == 1?@"xin":@"fabulous"];
-            
-            
-            if (detailModel.limitTime.integerValue == 0) {
-                [UIView animateWithDuration:0.2 animations:^{
-                    [self.headerView layoutIfNeeded];
-                    timeLimitViewCons.constant = 0;
-                    self.headerView.height = 115-44;
-                }];
-            }
-            */
+
             [self.tableView reloadData];
             
         }else if ([responseObject[@"code"] integerValue] == 600){

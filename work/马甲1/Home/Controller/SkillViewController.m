@@ -142,7 +142,25 @@
         
         if ([responseObject[@"code"]integerValue] == 200) {
             
-            self.expertModelArr = [SkillExpertModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            NSMutableArray *array = [SkillExpertModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            self.expertModelArr = [NSMutableArray array];
+            [array enumerateObjectsUsingBlock:^(SkillExpertModel   *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSRange range = [obj.masterTitle rangeOfString:@"聊"];//判断字符串是否包含
+                
+                //if (range.location ==NSNotFound)//不包含
+                if (range.length >0)//包含
+                {
+                    
+                    
+                    
+                }
+                else//不包含
+                {
+                    [self.expertModelArr addObject:obj];
+                }
+            }];
+            
+//            self.expertModelArr = [SkillExpertModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
             
         }

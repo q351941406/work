@@ -43,7 +43,24 @@
     self.commentCountL.text = [NSString stringWithFormat:@"%ld",model.commentCount];
     self.scanCountL.text = [NSString stringWithFormat:@"%ld",model.viewCount];
     [self.skillImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",model.cover]] placeholderImage:[UIImage imageNamed:@"kobe"]];
+    
+    NSRange range = [model.skillDesc rangeOfString:@"聊"];//判断字符串是否包含
+    
+    //if (range.location ==NSNotFound)//不包含
+    if (range.length >0)//包含
+    {
+        
+        model.skillDesc = [model.skillDesc stringByReplacingOccurrencesOfString:@"聊" withString:@"玩"];
+        
+    }
+    else//不包含
+    {
+        
+    }
     self.serviceIntroduceL.text = [NSString stringWithFormat:@"服务介绍: %@",model.skillDesc];
+    
+    
+    
     self.moneyL.text = [NSString stringWithFormat:@"%.2f元",model.price];
     if (model.isFavourite) {
         [self.collectionB setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];

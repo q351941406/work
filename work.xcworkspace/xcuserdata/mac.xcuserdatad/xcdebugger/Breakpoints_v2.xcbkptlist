@@ -29,22 +29,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "work/&#x9a6c;&#x7532;1/Home/Controller/SkillsDetailViewController.m"
-            timestampString = "527030435.855771"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "work/&#x9a6c;&#x7532;1/Mine/Controller/SettingViewController.m"
             timestampString = "527032872.107201"
             startingColumnNumber = "9223372036854775807"
