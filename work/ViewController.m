@@ -688,7 +688,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.bounces = NO;
+//        _tableView.bounces = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.contentInset = UIEdgeInsetsMake(HeaderH, 0, 0, 0);
         _tableView.estimatedRowHeight = 70;

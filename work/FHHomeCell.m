@@ -50,6 +50,7 @@
     _title.textColor = [UIColor whiteColor];
     _subTitle.textColor = _title.textColor;
     _desTitle.textColor = _title.textColor;
+    
 }
 
 +(instancetype)cellWithTableView:(UITableView *)tableView
