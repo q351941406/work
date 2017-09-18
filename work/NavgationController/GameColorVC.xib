@@ -137,7 +137,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRt-St-8Yw" customClass="FHTopImgBottomLabel">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRt-St-8Yw" customClass="FHTopImgBottomLabel">
                     <rect key="frame" x="16" y="1170" width="60" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="eYk-M7-Z4b"/>
@@ -149,7 +149,7 @@
                         <action selector="meirirenwu:" destination="-1" eventType="touchUpInside" id="GDj-EE-Pmd"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-QK-u39" customClass="FHTopImgBottomLabel">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-QK-u39" customClass="FHTopImgBottomLabel">
                     <rect key="frame" x="16" y="1104" width="60" height="58"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Jnh-CC-MFe"/>
@@ -203,7 +203,7 @@
                 <constraint firstItem="unX-j1-f8C" firstAttribute="leading" secondItem="vTB-G1-vE3" secondAttribute="trailing" id="rXO-4X-baU"/>
                 <constraint firstItem="LRt-St-8Yw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="wZY-B0-JKJ"/>
             </constraints>
-            <point key="canvasLocation" x="54.5" y="59.5"/>
+            <point key="canvasLocation" x="342" y="-162"/>
         </view>
     </objects>
     <resources>
