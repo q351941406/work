@@ -147,15 +147,15 @@ static NSString *identifier = @"DemandListCell";
         
     }];
     
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        pageCount = ((int)(self.dataArr.count-1)/10) + ((int)((self.dataArr.count-1)/10)>=1?1:2) + (((self.dataArr.count-1)%10)>0&&(self.dataArr.count-1)>10?1:0);
-        if ([button.currentTitle containsString:@"任务"]) {
-            [self requestWithCount:[NSString stringWithFormat:@"%ld",pageCount]];
-        }else if ([button.currentTitle containsString:@"技能"]){
-            [self requestListCount:[NSString stringWithFormat:@"%ld",pageCount]];
-        }
-        
-    }];
+//    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        pageCount = ((int)(self.dataArr.count-1)/10) + ((int)((self.dataArr.count-1)/10)>=1?1:2) + (((self.dataArr.count-1)%10)>0&&(self.dataArr.count-1)>10?1:0);
+//        if ([button.currentTitle containsString:@"任务"]) {
+//            [self requestWithCount:[NSString stringWithFormat:@"%ld",pageCount]];
+//        }else if ([button.currentTitle containsString:@"技能"]){
+//            [self requestListCount:[NSString stringWithFormat:@"%ld",pageCount]];
+//        }
+//        
+//    }];
 //    if (self.isModule) {
 //        self.searchBar.hidden = YES;
 //        [self.tableView.mj_header beginRefreshing];

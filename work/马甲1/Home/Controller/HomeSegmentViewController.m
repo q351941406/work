@@ -77,7 +77,8 @@
     style.selectedTitleColor = GreenColor;
     style.scrollLineColor = GreenColor;
     
-    self.titles = @[@"技能",
+    self.titles = @[
+//                    @"技能",
                     @"任务"
                     ];
     
@@ -106,10 +107,10 @@
     
     
     if (!childVc) {
-        if (index == 0) {
+        if (index == 1) {
             SkillViewController *demandListVC = [[SkillViewController alloc] init];
             childVc = demandListVC;
-        }else if (index == 1){
+        }else if (index == 0){
             
             DemandListViewController *demandListVC = [[DemandListViewController alloc] init];
             childVc = demandListVC;

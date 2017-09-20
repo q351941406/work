@@ -14,28 +14,18 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "work/&#x9a6c;&#x7532;1/Mine/Controller/SettingViewController.m"
-            timestampString = "527032872.107201"
+            filePath = "../&#x4e00;&#x4e9b;&#x517c;&#x804c;&#x9879;&#x76ee;/PartTimeApp-master/duanGongBangBusinessSide1.0/duanGongBangBusinessSide1.0/Classes/duanGongBang/Controller/&#x53d1;&#x5e03;&#x517c;&#x804c;/SendpartTimeJobViewController.m"
+            timestampString = "527447609.177704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "-logout:"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
+            landmarkName = "-btn5Tap:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -45,14 +35,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "work/&#x9a6c;&#x7532;1/Mine/Controller/MineNewViewController.m"
-            timestampString = "527034261.57464"
+            filePath = "work/&#x9a6c;&#x7532;1/Home/Controller/SearchDemandsViewController.m"
+            timestampString = "527624525.807302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "-wallet:"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SearchDemandsViewController viewDidLoad]"
+                  moduleName = "work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/work/%E9%A9%AC%E7%94%B21/Home/Controller/SearchDemandsViewController.m"
+                  timestampString = "527624558.942069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "3254">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[SearchDemandsViewController viewDidLoad]_block_invoke"
+                  moduleName = "work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/work/%E9%A9%AC%E7%94%B21/Home/Controller/SearchDemandsViewController.m"
+                  timestampString = "527624558.946279"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
