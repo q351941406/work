@@ -138,7 +138,7 @@
     navMine.tabBarItem.title = @"我的";
     
     
-    [self addChildViewController:navHome];
+//    [self addChildViewController:navHome];
     [self addChildViewController:navPartjob];
 //    [self addChildViewController:navDiscovery];
     [self addChildViewController:navChat];
