@@ -273,6 +273,12 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     self.window.rootViewController                 = nav3;
     [self.window makeKeyAndVisible];
 }
-
+-(NSMutableArray *)idArray
+{
+    if (!_idArray) {
+        _idArray = [NSMutableArray array];
+    }
+    return _idArray;
+}
 
 @end

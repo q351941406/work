@@ -11,7 +11,7 @@
 
 @interface JianZhiDetailController : NavigatinViewController
 
-
+@property(nonatomic,copy) void (^block)(JianzhiModel *jzModel);
 @property (nonatomic,copy) NSAttributedString *sendCount;
 
 @property (nonatomic,copy) NSString *jobId;

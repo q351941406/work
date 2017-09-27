@@ -19,6 +19,9 @@
 #import "LoginNew2ViewController.h"
 #import "SignUpView.h"
 #import "ShareView.h"
+#import "GZWTool.h"
+#import "GzwHUDTool.h"
+#import "m1AppDelegate.h"
 
 @interface JianZhiDetailController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,clickMoreBtnDelegate,ClickCallPhoneDelegate>
 {
@@ -63,6 +66,14 @@
     
 //    self.automaticallyAdjustsScrollViewInsets = YES;
 //    self.edgesForExtendedLayout = UIRectEdgeTop;
+    
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithTitle:@"举报" style:0 target:self action:@selector(item1)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithTitle:@"拉黑" style:0 target:self action:@selector(item2)];
+    item2.tintColor = [UIColor blackColor];
+    item1.tintColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItems = @[item1,item2];
+    
+    
     
     [NotificationCenter addObserver:self selector:@selector(refreshCellHeight:) name:@"contentSizeChanged" object:nil];
     
@@ -117,7 +128,45 @@
         }
     }];
 }
-
+-(void)item1
+{
+    [GzwHUDTool showWithStatus:nil];
+    [@"" gzw_performAfter:1 block:^{
+        [GzwHUDTool dismiss];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"举报成功" message:@"你举报的信息我们会尽快审核确认" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
+}
+-(void)item2
+{
+    if (![self checkExistPhoneNum]) {
+        [self gotoLoginVC];
+        return;
+    }
+    
+    [GzwHUDTool showWithStatus:@"正在拉黑"];
+    [@"" gzw_performAfter:1 block:^{
+        [GzwHUDTool dismiss];
+        m1AppDelegate *app = (m1AppDelegate *)[UIApplication sharedApplication].delegate;
+        [app.idArray  addObject:self.jobId];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+-(BOOL)checkExistPhoneNum
+{
+    if (USER.tel.length == 11) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+-(void)gotoLoginVC
+{
+    LoginNew2ViewController *loginVC= [[LoginNew2ViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
 /**
  *  没加载出数据时的图片
  */

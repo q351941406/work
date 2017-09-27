@@ -125,7 +125,7 @@ typedef NS_ENUM(NSUInteger,LoginType)
  */
 //@property (nonatomic,copy) NSString *resume;
 
-
+@property(nonatomic,strong)NSMutableArray *idArray;
 
 + (instancetype)userWithDict:(NSDictionary *)dict;
 - (instancetype)initWithDict:(NSDictionary *)dict;

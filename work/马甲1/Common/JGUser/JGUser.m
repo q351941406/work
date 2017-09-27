@@ -121,7 +121,13 @@
     NSError *error;
     [fielManager removeItemAtPath:JGUserFile error:&error];
 }
-
+-(NSMutableArray *)idArray
+{
+    if (!_idArray) {
+        _idArray = [NSMutableArray array];
+    }
+    return _idArray;
+}
 MJCodingImplementation
 
 @end

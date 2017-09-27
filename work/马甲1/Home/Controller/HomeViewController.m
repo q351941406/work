@@ -38,7 +38,7 @@
 #import "PrefrenceViewController.h"
 
 #import "DOPDropDownMenu.h"
-
+#import "m1AppDelegate.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,JGHomeHeaderDelegate,UIScrollViewDelegate,DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
 {
     int pageCount;
@@ -132,7 +132,14 @@
     }
     return _dataArr;
 }
-
+-(BOOL)checkExistPhoneNum
+{
+    if (USER.tel.length == 11) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
 
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -242,7 +249,24 @@
     [super viewDidAppear:animated];
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (![self checkExistPhoneNum]) {// 没登录
+        return;
+    }
 
+    
+    m1AppDelegate *app = (m1AppDelegate *)[UIApplication sharedApplication].delegate;
+    [app.idArray enumerateObjectsUsingBlock:^(NSString  *idd, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.dataArr enumerateObjectsUsingBlock:^(JianzhiModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.id isEqualToString:idd]) {
+                [self.dataArr removeObject:obj];
+            }
+        }];
+    }];
+
+    [self.tableView reloadData];
+}
 -(void)initMenu{
     self.selectMenu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:44];
     self.selectMenu.delegate = self;
@@ -288,7 +312,7 @@
         }
         
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
+        [self viewWillAppear:YES];
 
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
@@ -393,6 +417,11 @@
     JianzhiModel *model = self.dataArr[indexPath.row];
     
     JianZhiDetailController *jzdetailVC = [[JianZhiDetailController alloc] init];
+    jzdetailVC.block = ^(JianzhiModel *jzModel){
+//        [self.dataArr removeObject:jzModel];
+//        [tableView reloadData];
+    };
+    
     
     if (cell.leftCountL.hidden) {//隐藏的时候是招满了
         NSMutableAttributedString *sendCount = [[NSMutableAttributedString alloc] initWithString:@"已经招满"];
