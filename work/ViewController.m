@@ -23,8 +23,8 @@
 #import "LLWaveView.h"
 #import "RedPackgeView.h"
 #import "FHUser.h"
-
-//#import <GoogleMobileAds/GoogleMobileAds.h>
+//#import "LoginViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "DuiHuanViewController.h"
 #import "ConfigModel.h"
 #import "ZhiWuTBVC.h"
@@ -41,7 +41,8 @@
 #import "AppDelegate.h"
 #import "iRate.h"
 #import "SVWebViewController.h"
-
+#import <BaiduMobStat.h>
+#import "IQKeyboardManager.h"
 static NSString *const menuCellIdentifier = @"rotationCell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
@@ -75,8 +76,11 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-5630134464311346~2601202442"];
+    [Bmob registerWithAppKey:@"d4143c09cdb7e5d485251b00b232c526"];
+    [[BaiduMobStat defaultStat] startWithAppId:@"046f44a2ba"];
+    [self creatUse];
+    [self setupKeyboard];
     [self upDate];
     
     [self initUI];
@@ -308,6 +312,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     }
 
     HKNewsBannerView *newsView = [[HKNewsBannerView alloc] initWithFrame:CGRectMake(20, 210, contonView.width, 30)];
+    
     if (self.ads.count == 0) {
         NSArray *newsArr = @[@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中...",@"数据准备中..."];
         newsView.newsArray = newsArr;
@@ -399,6 +404,42 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 
 #pragma mark - action
+-(void)setupKeyboard
+{
+    [MQManager initWithAppkey:@"5979a4368c7786c76b58306036952553" completion:^(NSString *clientId, NSError *error) {
+    }];
+    [GzwThemeTool setup];
+    // 创建键盘管理者，它是个全局单利对象
+    IQKeyboardManager *manager                  = [IQKeyboardManager sharedManager];
+    // 设置激活状态
+    manager.enable                              = YES;
+    // 控制点击背景是否收起键盘。
+    manager.shouldResignOnTouchOutside          = YES;
+    // 控制键盘上的工具条文字颜色是否用户自定义。
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    // 控制是否显示键盘上的工具条。
+    manager.enableAutoToolbar                   = YES;
+    //    [manager disableToolbarInViewControllerClass:NSClassFromString(@"QYSessionViewController")];
+    //    [manager disableInViewControllerClass:NSClassFromString(@"QYSessionViewController")];
+}
+-(void)creatUse
+{
+    //    [SAMKeychain deletePasswordForService:@"UUID" account:@"UUID"];
+    NSString *UUID = [SAMKeychain passwordForService:@"UUID" account:@"UUID"];// 从钥匙串中获取UUID
+    if (!UUID) {// 获取不到则自己生成
+        UUID = [[NSUUID UUID] UUIDString];
+        //往GameScore表添加一条playerName为小明，分数为78的数据
+        BmobObject *gameScore = [BmobObject objectWithClassName:@"user"];
+        [gameScore setObject:UUID forKey:@"UUID"];
+        [gameScore setObject:@"0" forKey:@"Gold"];
+        [gameScore saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            //进行操作
+            if (isSuccessful) {
+                [SAMKeychain setPassword:UUID forService:@"UUID" account:@"UUID"];// 将UUID保存到钥匙串中去
+            }
+        }];
+    }
+}
 -(void)setupRate
 {
     [iRate sharedInstance].applicationBundleID = @"www.zuanqianqian.zuanqianqian";
@@ -688,7 +729,7 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-//        _tableView.bounces = NO;
+        _tableView.bounces = YES;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.contentInset = UIEdgeInsetsMake(HeaderH, 0, 0, 0);
         _tableView.estimatedRowHeight = 70;

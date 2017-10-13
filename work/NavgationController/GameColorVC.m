@@ -11,7 +11,7 @@
 #define MAX_level 18
 
 #import "GameColorVC.h"
-//#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import  <AVFoundation/AVFoundation.h>
 #import "GameResultCell.h"
 #import "RedPackgeView.h"
@@ -23,8 +23,8 @@
 #import "SAMKeychain.h"
 #import <SAMKeychain/SAMKeychain.h>
 
-@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,UIAlertViewDelegate,SKStoreProductViewControllerDelegate>
-//@property(nonatomic, strong) GADInterstitial *interstitial;
+@interface GameColorVC ()<AVAudioPlayerDelegate,UITableViewDelegate,UITableViewDataSource,RedPackgeViewDegelate,UIAlertViewDelegate,SKStoreProductViewControllerDelegate,GADRewardBasedVideoAdDelegate,GADInterstitialDelegate>
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @property (weak, nonatomic) IBOutlet UIButton *shitouBtn;
 @property (weak, nonatomic) IBOutlet UIButton *buBtn;
 @property (weak, nonatomic) IBOutlet UIButton *jiandaoBtn;
@@ -109,11 +109,11 @@
     }
     
     //AD
-//    self.interstitial = [self createAndLoadInterstitial];
-//    
-//    [GADRewardBasedVideoAd sharedInstance].delegate = self;
-//    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
-//                                           withAdUnitID:@"ca-app-pub-5630134464311346/8390260332"];
+    self.interstitial = [self createAndLoadInterstitial];
+    
+    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request]
+                                           withAdUnitID:@"ca-app-pub-5630134464311346/8390260332"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRedBage) name:nil object:nil];
     
@@ -375,17 +375,13 @@
     self.jinBILabel.text = [NSString stringWithFormat:@"%ld",([self.jinBILabel.text integerValue] + count)];
     //打开广告
     
-//    if (self.interstitial.isReady == NO) {
-//        self.interstitial = [self createAndLoadInterstitial];
-//    }
-//    
-//    if (self.interstitial.isReady) {
-//        [self.interstitial presentFromRootViewController:self];
-//    }else{
-//        if ([[GADRewardBasedVideoAd sharedInstance] isReady] && self.isJingAlert) {
-//            [self showAlert];
-//        }
-//    }
+    if (self.interstitial.isReady == NO) {
+        self.interstitial = [self createAndLoadInterstitial];
+    }
+    
+  
+        [self.interstitial presentFromRootViewController:self];
+
     
     //检查小红点是否存在
     [self checkRedBage];
@@ -409,42 +405,25 @@
 }
 
 #pragma mark - AD
-//- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-//    
-//    self.interstitial = [self createAndLoadInterstitial];
-//    
-//    if (self.isJingAlert) {
-//        return;
-//    }
-//    if (self.isAlwaysAd) {
-//        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-//            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-//        }
-//        return;
-//    }
-//    
-//    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-//        [self showAlert];
-//    }
-//}
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    
+    self.interstitial = [self createAndLoadInterstitial];
+    
+    if (self.isJingAlert) {
+        return;
+    }
+    if (self.isAlwaysAd) {
+        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+        }
+        return;
+    }
+    
 
--(void)showAlert
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"观看广告,即可获得88~188金币奖励" message:nil delegate:self cancelButtonTitle:@"😥取消" otherButtonTitles:@"😍获取更多金币", @"😊每次游戏结束我都要随机奖励",@"😖本局游戏不想多看广告",nil];
-    [alert show];
 }
 
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if (buttonIndex == 1) {
-//        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-//    }else if (buttonIndex == 2){
-//        self.isAlwaysAd = YES;
-//        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-//    }else if (buttonIndex == 3){
-//        self.isJingAlert = YES;
-//    }
-//}
+
+
 
 //- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
 //   didRewardUserWithReward:(GADAdReward *)reward {
@@ -489,15 +468,15 @@
     return _results;
 }
 
-//- (GADInterstitial *)createAndLoadInterstitial {
-//    GADInterstitial *interstitial =
-//    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-5630134464311346/8515874107"];
-//    interstitial.delegate = self;
-//    GADRequest *request = [GADRequest request];
-//    request.testDevices = @[kGADSimulatorID];
-//    [interstitial loadRequest:request];
-//    return interstitial;
-//}
+- (GADInterstitial *)createAndLoadInterstitial {
+    GADInterstitial *interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-5630134464311346/8515874107"];
+    interstitial.delegate = self;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[kGADSimulatorID];
+    [interstitial loadRequest:request];
+    return interstitial;
+}
 
 
 @end

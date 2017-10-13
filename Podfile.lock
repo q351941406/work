@@ -43,6 +43,7 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - Google-Mobile-Ads-SDK (7.23.0)
   - Harpy (4.1.6)
   - HKNewsBannerView (1.0.1)
   - HSSetTableViewController (1.2.1):
@@ -108,6 +109,7 @@ DEPENDENCIES:
   - FDFullscreenPopGesture (~> 1.1)
   - FDStackView (~> 1.0)
   - FMDB (~> 2.6.2)
+  - Google-Mobile-Ads-SDK
   - Harpy (~> 4.1.6)
   - HKNewsBannerView (~> 1.0.1)
   - HSSetTableViewController (~> 1.2.1)
@@ -126,7 +128,6 @@ DEPENDENCIES:
   - ReactiveCocoa (= 2.5)
   - SAMKeychain (~> 1.5.2)
   - SDCycleScrollView (~> 1.66)
-  - SDWebImage
   - SVProgressHUD
   - SVWebViewController (~> 1.0)
   - TZImagePickerController
@@ -148,6 +149,7 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FDStackView: 3a4bbe0ce9c35e974246a585168b9da8c32213f1
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Google-Mobile-Ads-SDK: a43dc8efdb566c74d00ac6934c781de969348d80
   Harpy: 00136386df1e2bb7554a5bef5d56529c9c33739a
   HKNewsBannerView: 2336ac6ce58cf891c73f96a5dad24b4d3d85e51a
   HSSetTableViewController: 3ca6ccd01469ec217bd208ca8fb626d6f17f6964
@@ -178,6 +180,6 @@ SPEC CHECKSUMS:
   WMPageController: e9af37a2c7f259582578b35f2b67530b061e3862
   WZLBadge: 9ec779dcfd94c825518b395e8315fccaabff1bfa
 
-PODFILE CHECKSUM: b0be4f44951754cb60bd3a0fc62b71231ab9a1a7
+PODFILE CHECKSUM: aa8db6b896f1198e77dd377315eb632f998b0dd4
 
 COCOAPODS: 1.2.0
