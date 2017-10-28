@@ -42,7 +42,8 @@
 #import "AppDelegate.h"
 #import "iRate.h"
 #import "SVWebViewController.h"
-
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 static NSString *const menuCellIdentifier = @"rotationCell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
@@ -89,31 +90,63 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 //        [redView show];
 //    }
     
-    //询问是否通过审核了
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoring"];
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error){
-            
-        }else{
-            BmobObject *obj = array.lastObject;
-            if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
-                [self loadData];
-                [self.navigationController.view addSubview:self.gameBtn];
-                UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
-                self.navigationItem.rightBarButtonItem = right;
-                [self setupRate];
-            }else {// 在审核中
-                [self loadFalseData];
-            }
-            AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            a.pass = [[obj objectForKey:@"pass"] boolValue];
-        }
-        
-    }];
+//    //询问是否通过审核了
+//    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend"];
+//    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+//        if (error){
+//
+//        }else{
+//            BmobObject *obj = array.lastObject;
+//            if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+//                [self loadData];
+//                [self.navigationController.view addSubview:self.gameBtn];
+//                UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+//                self.navigationItem.rightBarButtonItem = right;
+//                [self setupRate];
+//            }else {// 在审核中
+//                [self loadFalseData];
+//            }
+//            AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            a.pass = [[obj objectForKey:@"pass"] boolValue];
+//        }
+//
+//    }];
     
     
     
    
+    //询问是否通过审核了
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend"];
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error){
+            
+        }else{
+            [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([[obj objectForKey:@"name"] isEqualToString:@"马甲4"]) {
+                    if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+                        if ([self isSIMInstalled]) {//有SIM卡
+                            [self loadData];
+                            [self.navigationController.view addSubview:self.gameBtn];
+                            UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+                            self.navigationItem.rightBarButtonItem = right;
+                            [self setupRate];
+                        }else {// 无SIM卡
+                            [self loadFalseData];
+                        }
+                    }else {// 在审核中
+                        [self loadFalseData];
+                    }
+                    AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                    a.pass = [[obj objectForKey:@"pass"] boolValue];
+                }
+                
+            }];
+            
+            
+            
+        }
+        
+    }];
 
     
     
@@ -401,6 +434,20 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 
 #pragma mark - action
+// 判断设备是否安装sim卡
+-(BOOL)isSIMInstalled
+{
+    CTTelephonyNetworkInfo *networkInfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [networkInfo subscriberCellularProvider];
+    
+    if (!carrier.isoCountryCode) {
+        NSLog(@"No sim present Or No cellular coverage or phone is on airplane mode.");
+        return NO;
+    }
+    return YES;
+}
+
+
 -(void)setupRate
 {
     [iRate sharedInstance].applicationBundleID = @"www.zuanqianqian.zuanqianqian";
