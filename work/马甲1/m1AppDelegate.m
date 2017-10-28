@@ -30,6 +30,10 @@
 #import "UIWindow+Extension.h"
 #import "IWNavigationController.h"
 #import "ViewController.h"
+#import <BaiduMobStat.h>
+#import "IQKeyboardManager.h"
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 #define SV_APP_EXTENSIONS
 
 static NSString *BeeCloudAppID = @"3a9ecbbb-d431-4cd8-9af9-5e44ba504f9a";
@@ -121,7 +125,12 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([[obj objectForKey:@"name"] isEqualToString:@"马甲1"]) {
                     if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
-                        [self loadTureVC];
+                        if ([self isSIMInstalled]) {//有SIM卡
+                            [self loadTureVC];
+                        }else {// 无SIM卡
+                            self.window.rootViewController = [[MyTabBarController alloc] init];
+                            [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+                        }
                     }else {// 在审核中
                         self.window.rootViewController = [[MyTabBarController alloc] init];
                         [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
@@ -135,6 +144,12 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
         }
         
     }];
+    
+    
+    
+    
+    
+    
     
     
     
@@ -280,5 +295,16 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     }
     return _idArray;
 }
-
+// 判断设备是否安装sim卡
+-(BOOL)isSIMInstalled
+{
+    CTTelephonyNetworkInfo *networkInfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [networkInfo subscriberCellularProvider];
+    
+    if (!carrier.isoCountryCode) {
+        NSLog(@"No sim present Or No cellular coverage or phone is on airplane mode.");
+        return NO;
+    }
+    return YES;
+}
 @end

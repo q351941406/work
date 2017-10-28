@@ -52,12 +52,12 @@
                   moduleName = "work"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/work/work/%E9%A9%AC%E7%94%B21/Home/Controller/SearchDemandsViewController.m"
-                  timestampString = "528129859.721098"
+                  timestampString = "530893192.285376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
                   endingLineNumber = "132"
-                  offsetFromSymbolStart = "3254">
+                  offsetFromSymbolStart = "2880">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -67,12 +67,12 @@
                   moduleName = "work"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/work/work/%E9%A9%AC%E7%94%B21/Home/Controller/SearchDemandsViewController.m"
-                  timestampString = "528129859.725477"
+                  timestampString = "530893192.287908"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
                   endingLineNumber = "132"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
