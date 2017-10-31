@@ -44,6 +44,7 @@
 #import "SVWebViewController.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
+#import <AFNetworking/AFNetworking.h>
 static NSString *const menuCellIdentifier = @"rotationCell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
@@ -78,6 +79,24 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     [super viewDidLoad];
     
     
+    
+    
+    
+    
+//     AFHTTPSessionManager *mar=[AFHTTPSessionManager manager];
+//    [mar.requestSerializer setValue:@"en-us" forHTTPHeaderField:@"Accept-Language"];
+//    mar.requestSerializer = [AFJSONRequestSerializer serializer];
+//    mar.responseSerializer = [AFJSONResponseSerializer serializer];
+////    mar.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",@"application/x-javascript", nil];
+//    [mar.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",@"application/x-javascript", nil]];
+////    mar.responseSerializer.acceptableContentTypes = [mar.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+//    [mar POST:@"http://ip.taobao.com/service/getIpInfo.php?ip=myip" parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"");
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"");
+//    }];
     
     [self upDate];
     
@@ -125,11 +144,17 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                 if ([[obj objectForKey:@"name"] isEqualToString:@"马甲4"]) {
                     if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
                         if ([self isSIMInstalled]) {//有SIM卡
-                            [self loadData];
-                            [self.navigationController.view addSubview:self.gameBtn];
-                            UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
-                            self.navigationItem.rightBarButtonItem = right;
-                            [self setupRate];
+                            [self getIp:^(NSDictionary *dcit) {
+                                if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
+                                    [self loadData];
+                                    [self.navigationController.view addSubview:self.gameBtn];
+                                    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+                                    self.navigationItem.rightBarButtonItem = right;
+                                    [self setupRate];
+                                }else {// 在国外
+                                    [self loadFalseData];
+                                }
+                            }];
                         }else {// 无SIM卡
                             [self loadFalseData];
                         }
@@ -139,13 +164,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                     AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
                     a.pass = [[obj objectForKey:@"pass"] boolValue];
                 }
-                
             }];
-            
-            
-            
         }
-        
     }];
 
     
@@ -434,6 +454,26 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 
 #pragma mark - action
+// 获取IP
+-(void)getIp:(void (^)(NSDictionary *dcit))block
+{
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ip.taobao.com/service/getIpInfo.php?ip=myip"]] ;
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask * task = [[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSLog(@" ===000 %@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding] );
+        
+        if (error == nil && data )
+        {
+            NSError * jsonError = nil ;
+            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            block(jsonData);
+        }
+        return ;
+    }];
+    
+    [task resume];
+}
 // 判断设备是否安装sim卡
 -(BOOL)isSIMInstalled
 {
