@@ -162,7 +162,10 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
         {
             NSError * jsonError = nil ;
             NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-            block(jsonData);
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                block(jsonData);
+            }];
+           
         }
         return ;
     }];
