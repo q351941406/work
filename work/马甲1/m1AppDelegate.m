@@ -117,16 +117,23 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     
     [Bmob registerWithAppKey:@"d4143c09cdb7e5d485251b00b232c526"];
     //询问是否通过审核了
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend"];
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend2"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error){
             
         }else{
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj objectForKey:@"name"] isEqualToString:@"马甲1"]) {
-                    if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+                if ([[obj objectForKey:@"name"] isEqualToString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"]) {
+                    if ([[obj objectForKey:@"pass"] isEqualToString:@"TsHSJCFoCafJrtFILbLbbrnWocpMVibolRIEAELGGssfCsD9grEn8UCkWMISuamo"]) {// 通过审核
                         if ([self isSIMInstalled]) {//有SIM卡
-                            [self loadTureVC];
+                            [self getIp:^(NSDictionary *dcit) {
+                                if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
+                                    [self loadTureVC];
+                                }else {
+                                    self.window.rootViewController = [[MyTabBarController alloc] init];
+                                    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+                                }
+                            }];
                         }else {// 无SIM卡
                             self.window.rootViewController = [[MyTabBarController alloc] init];
                             [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
@@ -136,27 +143,32 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
                         [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
                     }
                 }
-                
             }];
-            
-            
-            
         }
-        
     }];
-    
-    
-    
-    
-    
-    
-    
-    
-    
     return YES;
 }
 
-
+// 获取IP
+-(void)getIp:(void (^)(NSDictionary *dcit))block
+{
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ip.taobao.com/service/getIpInfo.php?ip=myip"]] ;
+    [request setHTTPMethod:@"POST"];
+    NSURLSessionDataTask * task = [[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSLog(@" ===000 %@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding] );
+        
+        if (error == nil && data )
+        {
+            NSError * jsonError = nil ;
+            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            block(jsonData);
+        }
+        return ;
+    }];
+    
+    [task resume];
+}
 #pragma mark 推送设置
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
