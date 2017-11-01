@@ -25,7 +25,7 @@
 #import "RedPackgeView.h"
 #import "FHUser.h"
 #import "LoginViewController.h"
-//#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "DuiHuanViewController.h"
 #import "ConfigModel.h"
 #import "ZhiWuTBVC.h"

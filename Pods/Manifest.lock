@@ -23,6 +23,7 @@ PODS:
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
   - ContextMenu.iOS (1.1.0)
+  - Google-Mobile-Ads-SDK (7.23.0)
   - Harpy (4.1.6)
   - HKNewsBannerView (1.0.1)
   - HSSetTableViewController (1.2.1):
@@ -76,6 +77,7 @@ DEPENDENCIES:
   - BmobSDK
   - ChameleonFramework (~> 2.1.0)
   - ContextMenu.iOS (~> 1.1.0)
+  - Google-Mobile-Ads-SDK
   - Harpy (~> 4.1.6)
   - HKNewsBannerView (~> 1.0.1)
   - HSSetTableViewController (~> 1.2.1)
@@ -103,6 +105,7 @@ SPEC CHECKSUMS:
   BmobSDK: 952f0ca736deae9d1b6591d72337df7d9072d4f2
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   ContextMenu.iOS: 7f3b63915e660f51aada2c4285c40a837b2c9737
+  Google-Mobile-Ads-SDK: a43dc8efdb566c74d00ac6934c781de969348d80
   Harpy: 00136386df1e2bb7554a5bef5d56529c9c33739a
   HKNewsBannerView: 2336ac6ce58cf891c73f96a5dad24b4d3d85e51a
   HSSetTableViewController: 3ca6ccd01469ec217bd208ca8fb626d6f17f6964
@@ -128,6 +131,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
   WMPageController: e9af37a2c7f259582578b35f2b67530b061e3862
 
-PODFILE CHECKSUM: 9f9d5f449f7de5197ba6d7767037b42babdb1903
+PODFILE CHECKSUM: 952a0b37fe6571c790ccbc2d75ee3dda46d65bc9
 
 COCOAPODS: 1.2.0

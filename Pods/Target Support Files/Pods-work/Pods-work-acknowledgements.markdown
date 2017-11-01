@@ -307,6 +307,10 @@ Apache License
 
 
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2017 Google
+
 ## HKNewsBannerView
 
 The MIT License (MIT)
