@@ -3726,7 +3726,7 @@
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/Umeng",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.jianzhifeng.jianzhifengdd;
+				PRODUCT_BUNDLE_IDENTIFIER = www.fengzuanwaikuai.fengzuanwaikuai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3764,7 +3764,7 @@
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/work/马甲1/FrameWork/第三方/Umeng",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.jianzhifeng.jianzhifengdd;
+				PRODUCT_BUNDLE_IDENTIFIER = www.fengzuanwaikuai.fengzuanwaikuai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

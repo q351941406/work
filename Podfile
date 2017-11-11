@@ -30,6 +30,9 @@ pod 'NYSegmentedControl', '~> 1.1.0'
 pod 'WMPageController'
 pod 'HSSetTableViewController', '~> 1.2.1'
 pod 'SVWebViewController', '~> 1.0'
+pod 'ChameleonFramework', '~> 2.1.0'
+
+
 
 # pod 'AVOSCloud'
 # pod 'AVOSCloudIM'

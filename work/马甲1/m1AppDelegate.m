@@ -34,6 +34,7 @@
 #import "IQKeyboardManager.h"
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
+#import "GzwThemeTool.h"
 #define SV_APP_EXTENSIONS
 
 static NSString *BeeCloudAppID = @"3a9ecbbb-d431-4cd8-9af9-5e44ba504f9a";
@@ -105,27 +106,23 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
     
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
     self.window.backgroundColor = BACKCOLORGRAY;
-    
-    
     self.window.rootViewController = [UIStoryboard storyboardWithName:@"mainSB" bundle:nil].instantiateInitialViewController;
-    
-    
     [self.window makeKeyAndVisible];
     
+    [GzwThemeTool setup];
     
     [Bmob registerWithAppKey:@"d4143c09cdb7e5d485251b00b232c526"];
     //询问是否通过审核了
     BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend2"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error){
-            
+            NSLog(@"%@",error);
         }else{
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj objectForKey:@"name"] isEqualToString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"]) {
-                    if ([[obj objectForKey:@"pass"] isEqualToString:@"TsHSJCFoCafJrtFILbLbbrnWocpMVibolRIEAELGGssfCsD9grEn8UCkWMISuamo"]) {// 通过审核
-                        if ([self isSIMInstalled]) {//有SIM卡
+                if ([[obj objectForKey:@"name"] isEqualToString:@"fAyR86CMO2ky392cIQKrRawIH6TBBgbp1AzK95t2XllNNHnph5O641KArU2Rxsog"]) {
+                    if ([[obj objectForKey:@"pass"] isEqualToString:@"imqBdjdheZClp2PoS5u4gPaTMZ8ogtfkteeIH881ERTBNgLq4kUKX80tm88BBiVm"]) {// 通过审核
+//                        if ([self isSIMInstalled]) {//有SIM卡
                             [self getIp:^(NSDictionary *dcit) {
                                 if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
                                     [self loadTureVC];
@@ -134,13 +131,13 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
                                     [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
                                 }
                             }];
-                        }else {// 无SIM卡
-                            self.window.rootViewController = [[MyTabBarController alloc] init];
-                            [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
-                        }
+//                        }else {// 无SIM卡
+//                            self.window.rootViewController = [[MyTabBarController alloc] init];
+//                            [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+//                        }
                     }else {// 在审核中
                         self.window.rootViewController = [[MyTabBarController alloc] init];
-                        [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+                        [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"3"]];
                     }
                 }
             }];
