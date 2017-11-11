@@ -45,6 +45,7 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
 #import <AFNetworking/AFNetworking.h>
+#import "Aaaaa.h"
 static NSString *const menuCellIdentifier = @"rotationCell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,HKNewsBannerViewDelegate,RedPackgeViewDegelate,UIAlertViewDelegate,YALContextMenuTableViewDelegate>
@@ -132,17 +133,16 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 //    }];
     
     
-    
    
     //询问是否通过审核了
-    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend"];
+    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend2"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error){
             
         }else{
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj objectForKey:@"name"] isEqualToString:@"马甲4"]) {
-                    if ([[obj objectForKey:@"pass"] boolValue]) {// 通过审核
+                if ([[obj objectForKey:@"name"] isEqualToString:@"Y6tzsdahS3b87Yv9SLqojgqSMML1l6N1QUPAdgbRXBOxetYKDV3C5CaR0G5Kfrwj"]) {
+                    if ([[obj objectForKey:@"pass"] isEqualToString:@"WHG7evIp7JIsgGqXufPn86aLdmnLdsqHoocQvM1eROSxwve99rxBbX9eK5HldnhQ"]) {// 通过审核
                         if ([self isSIMInstalled]) {//有SIM卡
                             [self getIp:^(NSDictionary *dcit) {
                                 if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
@@ -151,6 +151,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                                     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
                                     self.navigationItem.rightBarButtonItem = right;
                                     [self setupRate];
+                                    AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                                    a.pass = YES;
                                 }else {// 在国外
                                     [self loadFalseData];
                                 }
@@ -161,8 +163,6 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                     }else {// 在审核中
                         [self loadFalseData];
                     }
-                    AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                    a.pass = [[obj objectForKey:@"pass"] boolValue];
                 }
             }];
         }
@@ -214,6 +214,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 }
 -(void)loadFalseData
 {
+    AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    a.pass = NO;
     NSArray *title = @[
                        @"火爆招募电脑手机小时工",
                        @"邯郸顺丰兼职分拣员",
@@ -233,12 +235,12 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                       ];
     
     NSArray *right = @[
-                       @"240",
-                       @"400",
-                       @"200",
-                       @"220",
-                       @"20",
-                       @"380",
+                       @"53",
+                       @"13",
+                       @"14",
+                       @"111",
+                       @"13",
+                       @"14",
                        ];
     
     NSArray *url = @[
@@ -249,12 +251,21 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                      @"http://wap.ssjzw.com/hd/job/2011908944.html",
                      @"http://wap.ssjzw.com/hd/job/2011908943.html",
                      ];
+    NSArray *dec = @[
+                     @"挣点零花钱买漂亮衣想服，打发上网的无聊时间，想做正规兼职的朋友注意(不相信的勿扰\n①需要手机或电脑和支付宝，会淘宝。/示爱\n ②日薪50-200，有能力的日薪200以上，日结打支付宝里。/示爱\n③时间地点不限，不会的我们会培训。/示爱\n④我们刷单无需垫付，垫付的都是骗子，完全不用自己出一分钱。\n⑤想要赚点零花钱的学生，宝妈，上班族",
+                     @"一、岗位要求：\n1、协助全职运作员进行快件的分拣???工作\n2、协助对进出港快件按照规定进行建解包；\n3、协助对到达、发出车辆做好解封车操作，并对相关信息进行登记\n二、任职要求\n1、高中学历\n2、身体健康、吃苦耐劳\n三、待遇\n按小时计算，每小时16元，每天工作4个小时，工资月结\n*警示信息：顺丰速运有限公司及其下属分公司实施招聘、培训不收取任何费用、押金等，敬请各位求职者知晓并转告，以免受骗损失财物。",
+                     @"文化教室招聘奥数老师，???要求有讲课经验，课堂教学活波，具体面谈！！！需能长期工作，专兼职均可！",
+                     @"我们是北京饿了么第三方配送服务商 由于站点的不断增???加 配送范围的不断扩大 我们配送力量严重不足 所以现在大力需求代我们扩散信息的人才 我们会提供丰厚的待遇",
+                     @"公司因发展需要，现急招兼职促销员若干，限男性，工资???日结，请加微信详聊：17098069086",
+                     @"本人《承德金山岭酿酒有限公司》区域总代理因业务需要???现招聘大量业务员销售精英，纯提成无底薪，地区不限在哪里都可以销售，单笔销售5000以上提成10%，5000以下提成6%。只要肯努力月薪过万不是梦，无风险多劳多得，此招聘长期有效，微信 电话同步18803306890\n承德金山岭酿酒有限公司，始建于1995年，在2010年，被承德宏远集团董事长付宏杰先生收购，把天子酒厂改为金山岭。因为金山岭长城驰名中外。在月球上唯一能够看到地球上人类的建筑物。一路走来，金山岭酒获得五块荣誉证书，坚持捍卫粮食酿酒，2016年9月20日，2000多亩的有机原高粱生产基地，中央电视台2，4，13频道现场直播报道。十月份，金山岭酒代表河北省唯一一家去往北京参加中国纯粮食酿酒的博览大会展览参观，这是河北省人民的骄傲，也是承德人民的自豪！",
+                     ];
     [title enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         HomeModel *model = [[HomeModel alloc]init];
         model.title = title[idx];
         model.subtitle = left[idx];
         model.count = [right[idx] integerValue];
         model.URL = url[idx];
+        model.dec = dec[idx];
         [self.datas addObject:model];
     }];
     [self.tableView reloadData];
@@ -700,14 +711,12 @@ void shakerAnimation (UIView *view ,NSTimeInterval duration,float height){
             [UITabBar appearance].barTintColor = [UIColor whiteColor];
             NSURL *URL = [NSURL URLWithString:model.URL];
             SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
-            [self.navigationController pushViewController:webViewController animated:YES];
+//            [self.navigationController pushViewController:webViewController animated:YES];
             
-                    //AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-                    //[self.navigationController pushViewController:web animated:YES];
-            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-//            [alert show];
-            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Aaaaa" bundle:nil];
+            Aaaaa *vc = sb.instantiateInitialViewController;
+            vc.model = model;
+            [self.navigationController pushViewController:vc animated:YES];
         }else{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.URL]];
         }

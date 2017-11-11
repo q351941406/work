@@ -89,7 +89,7 @@
 //
 //    
 //
-    UIColor *flatColor = [UIColor blackColor];
+    UIColor *flatColor = [UIColor whiteColor];
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = flatColor;
@@ -118,7 +118,7 @@
     // 设置bar的颜色
         navBar.barTintColor = color;
 //    [navBar setBackgroundImage:[UIImage imageNamed:@"上导航bg"] forBarMetrics:UIBarMetricsDefault];// 背景图片
-    UIColor *flatColor = ComplementaryFlatColor([GzwThemeTool theme]);
+    UIColor *flatColor = [UIColor whiteColor];
     // 设置状态栏颜色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     // 设置标题属性

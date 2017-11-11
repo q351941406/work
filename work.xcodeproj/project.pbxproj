@@ -40,6 +40,8 @@
 		046327FE1F608A1A003D88DD /* ContextMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046327FC1F608A1A003D88DD /* ContextMenuCell.m */; };
 		046327FF1F608A1A003D88DD /* ContextMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046327FD1F608A1A003D88DD /* ContextMenuCell.xib */; };
 		046328021F608EE2003D88DD /* YALNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 046328011F608EE2003D88DD /* YALNavigationBar.m */; };
+		04826E1B1FB6D47300A66DC0 /* Aaaaa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04826E1A1FB6D47300A66DC0 /* Aaaaa.storyboard */; };
+		04826E1E1FB6D86A00A66DC0 /* Aaaaa.m in Sources */ = {isa = PBXBuildFile; fileRef = 04826E1D1FB6D86A00A66DC0 /* Aaaaa.m */; };
 		35ACE88D7DC9BA532C2045FB /* Pods_work.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B861EFC498611EE9247A00 /* Pods_work.framework */; };
 		4F7D6BF91F3BF90B00FBEB2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D6BF81F3BF90B00FBEB2E /* main.m */; };
 		4F7D6BFC1F3BF90B00FBEB2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D6BFB1F3BF90B00FBEB2E /* AppDelegate.m */; };
@@ -184,6 +186,9 @@
 		046328041F61347B003D88DD /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		046328051F613490003D88DD /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/mainSB.strings"; sourceTree = "<group>"; };
 		046328061F613491003D88DD /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		04826E1A1FB6D47300A66DC0 /* Aaaaa.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Aaaaa.storyboard; sourceTree = "<group>"; };
+		04826E1C1FB6D86A00A66DC0 /* Aaaaa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Aaaaa.h; sourceTree = "<group>"; };
+		04826E1D1FB6D86A00A66DC0 /* Aaaaa.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aaaaa.m; sourceTree = "<group>"; };
 		4F7D6BF41F3BF90B00FBEB2E /* work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7D6BF81F3BF90B00FBEB2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F7D6BFA1F3BF90B00FBEB2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -520,6 +525,9 @@
 				0415511B1F56E28500C833E8 /* GzwThemeTool.m */,
 				4F7D6BFD1F3BF90B00FBEB2E /* ViewController.h */,
 				4F7D6BFE1F3BF90B00FBEB2E /* ViewController.m */,
+				04826E1C1FB6D86A00A66DC0 /* Aaaaa.h */,
+				04826E1D1FB6D86A00A66DC0 /* Aaaaa.m */,
+				04826E1A1FB6D47300A66DC0 /* Aaaaa.storyboard */,
 				AD3EF2B21F4D116D006A4E59 /* ZhiWuTBVC.h */,
 				AD3EF2B31F4D116D006A4E59 /* ZhiWuTBVC.m */,
 				AD318D421F4188EA00598F23 /* LoginViewController.h */,
@@ -799,6 +807,7 @@
 				AD318D371F413A4000598F23 /* cash_received_coin.caf in Resources */,
 				AD318D671F41CD2000598F23 /* rps_option_fan1.png in Resources */,
 				AD318D621F41CC6700598F23 /* sfx_point.caf in Resources */,
+				04826E1B1FB6D47300A66DC0 /* Aaaaa.storyboard in Resources */,
 				AD318D5C1F41CC6700598F23 /* luck_running.wav in Resources */,
 				AD0022C11F3EDD1A00AD39A3 /* hud_info@2x.png in Resources */,
 				AD318D601F41CC6700598F23 /* rps_option_3.png in Resources */,
@@ -903,6 +912,7 @@
 				ADFFD7D21F46D73C00FD76EC /* FHExplainxibView.m in Sources */,
 				041551621F580C0000C833E8 /* NSDate+GZW.m in Sources */,
 				046327FE1F608A1A003D88DD /* ContextMenuCell.m in Sources */,
+				04826E1E1FB6D86A00A66DC0 /* Aaaaa.m in Sources */,
 				ADB821AB1F40343000318342 /* NSString+Extension.m in Sources */,
 				AD318D411F41889C00598F23 /* WHGradientHelper.m in Sources */,
 				0415516E1F580C0000C833E8 /* UILabel+Extended.m in Sources */,
@@ -1078,7 +1088,7 @@
 				INFOPLIST_FILE = work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.zuanqianqian.zuanqianqian;
+				PRODUCT_BUNDLE_IDENTIFIER = www.kaolawangzuan.kaolawangzuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1102,7 +1112,7 @@
 				INFOPLIST_FILE = work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.zuanqianqian.zuanqianqian;
+				PRODUCT_BUNDLE_IDENTIFIER = www.kaolawangzuan.kaolawangzuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

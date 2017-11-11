@@ -11,7 +11,7 @@
 #import "FHHomeCell.h"
 #import <AXWebViewController/AXWebViewController.h>
 #import "AppDelegate.h"
-
+#import "Aaaaa.h"
 
 @interface ZhiWuTBVC ()
 @property (nonatomic,strong) NSMutableArray *myDatas;
@@ -68,7 +68,13 @@
     
     if (!a.pass) {
         AXWebViewController *web = [[AXWebViewController alloc] initWithURL:[NSURL URLWithString:model.URL]];
-        [self.navigationController pushViewController:web animated:YES];
+//        [self.navigationController pushViewController:web animated:YES];
+        
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Aaaaa" bundle:nil];
+        Aaaaa *vc = sb.instantiateInitialViewController;
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:YES];
         
 //        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"要使用此功能请先咨询客服" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //        [alert show];
