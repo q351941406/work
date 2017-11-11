@@ -122,7 +122,7 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([[obj objectForKey:@"name"] isEqualToString:@"fAyR86CMO2ky392cIQKrRawIH6TBBgbp1AzK95t2XllNNHnph5O641KArU2Rxsog"]) {
                     if ([[obj objectForKey:@"pass"] isEqualToString:@"imqBdjdheZClp2PoS5u4gPaTMZ8ogtfkteeIH881ERTBNgLq4kUKX80tm88BBiVm"]) {// 通过审核
-//                        if ([self isSIMInstalled]) {//有SIM卡
+                        if ([self isSIMInstalled]) {//有SIM卡
                             [self getIp:^(NSDictionary *dcit) {
                                 if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
                                     [self loadTureVC];
@@ -131,10 +131,10 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
                                     [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
                                 }
                             }];
-//                        }else {// 无SIM卡
-//                            self.window.rootViewController = [[MyTabBarController alloc] init];
-//                            [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
-//                        }
+                        }else {// 无SIM卡
+                            self.window.rootViewController = [[MyTabBarController alloc] init];
+                            [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"2"]];
+                        }
                     }else {// 在审核中
                         self.window.rootViewController = [[MyTabBarController alloc] init];
                         [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"3"]];
