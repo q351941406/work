@@ -9,7 +9,7 @@
 #import "NavigatinViewController.h"
 @class JianzhiModel;
 
-@interface JianZhiDetailController : NavigatinViewController
+@interface JianZhiDetailController : UIViewController
 
 @property(nonatomic,copy) void (^block)(JianzhiModel *jzModel);
 @property (nonatomic,copy) NSAttributedString *sendCount;

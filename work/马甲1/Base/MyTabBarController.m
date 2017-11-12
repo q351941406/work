@@ -38,7 +38,8 @@
 #import "POP.h"
 #import "PresentingAnimator.h"
 #import "DismissingAnimator.h"
-
+#import "IWNavigationController.h"
+#import "HomeViewController.h"
 @interface MyTabBarController ()<UITabBarControllerDelegate>
 
 
@@ -83,7 +84,9 @@
 -(void)setChildController
 {
     
-    HomeSegmentViewController *homeVC = [[HomeSegmentViewController alloc] init];
+//    HomeSegmentViewController *homeVC = [[HomeSegmentViewController alloc] init];
+    HomeViewController *homeVC = [[HomeViewController alloc] init];
+    
     homeVC.title = @"首页";
 
     //设置图标
@@ -111,7 +114,7 @@
     discoveryVC.tabBarItem.image = [UIImage imageNamed:@"find"];
     //选中图标样式  修改渲染模式
     discoveryVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"finds"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UINavigationController *navDiscovery = [[UINavigationController alloc] initWithRootViewController:discoveryVC];
+    IWNavigationController *navDiscovery = [[IWNavigationController alloc] initWithRootViewController:discoveryVC];
     navDiscovery.tabBarItem.title = @"发现";
     
 
@@ -124,7 +127,7 @@
     chatVC.tabBarItem.image = [UIImage imageNamed:@"zh_lt"];
     //选中图标样式  修改渲染模式
     chatVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"xz_lt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UINavigationController *navChat = [[UINavigationController alloc] initWithRootViewController:chatVC];
+    IWNavigationController *navChat = [[IWNavigationController alloc] initWithRootViewController:chatVC];
     navChat.tabBarItem.title = @"果聊";
     
     
@@ -134,7 +137,7 @@
     mineVC.tabBarItem.image = [UIImage imageNamed:@"zh_wd"];
     //选中图标样式  修改渲染模式
     mineVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"xz_wd"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UINavigationController *navMine = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    IWNavigationController *navMine = [[IWNavigationController alloc] initWithRootViewController:mineVC];
     navMine.tabBarItem.title = @"我的";
     
     
@@ -145,6 +148,8 @@
     [self addChildViewController:navMine];
 
     self.tabBar.tintColor = RGBCOLOR(113, 170, 58); // 设置tabbar上的字体颜色
+    
+    
     
 }
 

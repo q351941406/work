@@ -385,7 +385,7 @@
     if (USER.resume.intValue == 0){
         [self showAlertViewWithText:@"请您先去完善资料" duration:1];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self gotoProfileVC];
+//            [self gotoProfileVC];
         });
         return;
     }
@@ -462,7 +462,7 @@
     }else if (USER.resume.intValue == 0){
         [self showAlertViewWithText:@"请您先去完善资料" duration:1];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self gotoProfileVC];
+//            [self gotoProfileVC];
         });
         return;
     }else if (self.detailModel.count.intValue >= sum || self.detailModel.status.intValue!=1){//
