@@ -759,14 +759,14 @@
 				TargetAttributes = {
 					4F7D6BF31F3BF90B00FBEB2E = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = TVGEQHNGJH;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = D48G7AL347;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1076,8 +1076,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = work/work.entitlements;
-				DEVELOPMENT_TEAM = TVGEQHNGJH;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhang XinXin (D48G7AL347)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D48G7AL347;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1088,8 +1089,10 @@
 				INFOPLIST_FILE = work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.kaolawangzuan.kaolawangzuan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalz.klwz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69a79475-c33a-48fa-aa92-8df9733fde0a";
+				PROVISIONING_PROFILE_SPECIFIER = klwzd;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1100,8 +1103,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = work/work.entitlements;
-				DEVELOPMENT_TEAM = TVGEQHNGJH;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhang XinXin (D48G7AL347)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D48G7AL347;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1112,8 +1116,10 @@
 				INFOPLIST_FILE = work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.kaolawangzuan.kaolawangzuan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalz.klwz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69a79475-c33a-48fa-aa92-8df9733fde0a";
+				PROVISIONING_PROFILE_SPECIFIER = klwzd;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
