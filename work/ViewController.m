@@ -353,7 +353,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
     
     
-    NSArray *titles = @[@"新手福利",@"高薪专区",@"极速提现",@"淘宝优惠券"];
+    NSArray *titles = @[@"新手福利",@"高薪专区",@"极速任务",@"淘宝优惠券"];
 
     CGFloat W = (self.view.width - 30 - titles.count * 10) / titles.count;
     for (int i = 0; i < titles.count; i++) {
