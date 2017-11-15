@@ -40,6 +40,8 @@
 #import "DismissingAnimator.h"
 #import "IWNavigationController.h"
 #import "HomeViewController.h"
+#import "GzwThemeTool.h"
+#import "GZWTool.h"
 @interface MyTabBarController ()<UITabBarControllerDelegate>
 
 
@@ -103,9 +105,12 @@
     //设置图标
     partjobVC.tabBarItem.image = [UIImage imageNamed:@"part-times"];
     //选中图标样式  修改渲染模式
-    partjobVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"parttime"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    partjobVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"part-times"] gzw_imageWithColor:[GzwThemeTool theme]];
     UINavigationController *navPartjob = [[UINavigationController alloc] initWithRootViewController:partjobVC];
     navPartjob.tabBarItem.title = @"兼职";
+    
+    
+    UIImage *i = [[UIImage imageNamed:@"zh_wd"] gzw_imageWithColor:[UIColor redColor]];
     
     
     DiscoveryViewController *discoveryVC = [[DiscoveryViewController alloc] init];
@@ -126,7 +131,7 @@
     //设置图标
     chatVC.tabBarItem.image = [UIImage imageNamed:@"zh_lt"];
     //选中图标样式  修改渲染模式
-    chatVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"xz_lt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    chatVC.tabBarItem.selectedImage =  [[UIImage imageNamed:@"zh_lt"] gzw_imageWithColor:[GzwThemeTool theme]];
     IWNavigationController *navChat = [[IWNavigationController alloc] initWithRootViewController:chatVC];
     navChat.tabBarItem.title = @"果聊";
     
@@ -136,7 +141,7 @@
     //设置图标
     mineVC.tabBarItem.image = [UIImage imageNamed:@"zh_wd"];
     //选中图标样式  修改渲染模式
-    mineVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"xz_wd"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mineVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"zh_wd"] gzw_imageWithColor:[GzwThemeTool theme]];
     IWNavigationController *navMine = [[IWNavigationController alloc] initWithRootViewController:mineVC];
     navMine.tabBarItem.title = @"我的";
     
