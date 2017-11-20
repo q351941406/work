@@ -123,8 +123,8 @@ static NSString *WX_appID = @"wx8c1fd6e2e9c4fd49";//
             
         }else{
             [array enumerateObjectsUsingBlock:^(BmobObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj objectForKey:@"name"] isEqualToString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"]) {
-                    if ([[obj objectForKey:@"pass"] isEqualToString:@"TsHSJCFoCafJrtFILbLbbrnWocpMVibolRIEAELGGssfCsD9grEn8UCkWMISuamo"]) {// 通过审核
+                if ([[obj objectForKey:@"name"] isEqualToString:@"06OpvHYs3oMnbI6I9je9yuZriBBpRKUYTt4WDJyIQNHo106M7upAPplh4UEl14eQ"]) {
+                    if ([[obj objectForKey:@"pass"] isEqualToString:@"trkYskYBXyxtcLMlgXYKAz4L9oPqICXbOKdsY6fmY8ldnfil1e5JRVJMZ7oU0nJl"]) {// 通过审核
                         if ([self isSIMInstalled]) {//有SIM卡
                             [self getIp:^(NSDictionary *dcit) {
                                 if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
