@@ -132,7 +132,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 //
 //    }];
     
-    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
+    self.navigationItem.rightBarButtonItem = right;
    
     //询问是否通过审核了
     BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend2"];
@@ -148,8 +149,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
                                 if ([dcit[@"data"][@"country_id"] isEqualToString:@"CN"]) {// 在中国
                                     [self loadData];
                                     [self.navigationController.view addSubview:self.gameBtn];
-                                    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
-                                    self.navigationItem.rightBarButtonItem = right;
+                                    
                                     [self setupRate];
                                     AppDelegate *a = (AppDelegate *)[UIApplication sharedApplication].delegate;
                                     a.pass = YES;
