@@ -134,7 +134,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"duihuan"] style:0 target:self action:@selector(rightClick)];
     self.navigationItem.rightBarButtonItem = right;
-   
+   [self loadFalseData];
     //询问是否通过审核了
     BmobQuery   *bquery = [BmobQuery queryWithClassName:@"censoringPretend2"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
